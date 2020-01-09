@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import './App.css';
-import SignUpForm from './Components/SignUpForm'
+// import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import LoggedInHomePage from './Components/LoggedInHomePage';
+import StartPage from './Components/StartPage';
 
 const avatarURL = "http://localhost:3000/avatars"
 const userURL = "http://localhost:3000/users"
@@ -30,15 +32,19 @@ class App extends Component {
     })
   }
 
+  logIn = () => {
+    this.setState({loggedIn: true})
+  }
+
   render(){
     return (
-      <div className="App">
-        {!this.state.loggedIn
-          ?<SignUpForm avatars={this.state.avatars} addUser={this.addUser} />
-          : null
-        }
-        
-      </div>
+      
+        <div className="App">
+          <StartPage avatars={this.state.avatars} addUser={this.addUser} logIn={this.logIn}/>
+          
+        </div>
+
+      
     );
   }
 }

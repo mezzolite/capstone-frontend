@@ -17,8 +17,10 @@ class SignUpForm extends Component{
     }
 
     handleSubmit = (event) => {
+        console.log(event.target)
         event.preventDefault()
         this.props.addUser(this.state)
+        this.props.logIn()
           
         event.target.reset()
     }
@@ -29,7 +31,7 @@ class SignUpForm extends Component{
 
     render(){
         return(
-            <form className="sign-up-form">
+            <form className="sign-up-form" onSubmit={this.handleSubmit}>
                 <label for="username">Username</label>
                 <input 
                     type="text" 
@@ -40,7 +42,7 @@ class SignUpForm extends Component{
                 />
                 <label for="password">Password</label>
                 <input 
-                    type="text" 
+                    type="password" 
                     name="password" 
                     id="password"
                     value={this.state.password}
