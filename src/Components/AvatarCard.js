@@ -24,18 +24,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function AvatarCard({avatar}) {
+export default function AvatarCard({avatar, setAvatar}) {
   const classes = useStyles();
 
   const handleClick = (event) => {
     if(!event.target.className.includes(classes.clicked)){
         event.target.className = classes.large && classes.clicked
     } 
+    setAvatar(avatar.id)
   }
 
   return (
     <div className={classes.root}>
-      <Avatar onClick={handleClick} alt={avatar.name} src={`${avatar.image}.gif`} className={classes.large} />
+      <Avatar onClick={handleClick} alt={avatar.name} src={avatar.image} className={classes.large} />
     </div>
   );
 }

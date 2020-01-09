@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import SignUpForm from './Components/SignUpForm'
 
 const avatarURL = "http://localhost:3000/avatars"
+const userURL = "http://localhost:3000/users"
 
 
 class App extends Component {
@@ -18,11 +19,22 @@ class App extends Component {
       .then(avatars => this.setState({avatars}))
   }
 
+  addUser = (user) => {
+    fetch(userURL, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+  }
+
   render(){
     return (
       <div className="App">
         {!this.state.loggedIn
-          ?<SignUpForm avatars={this.state.avatars} />
+          ?<SignUpForm avatars={this.state.avatars} addUser={this.addUser} />
           : null
         }
         
