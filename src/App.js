@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 // import './App.css';
-// import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import LoggedInHomePage from './Components/LoggedInHomePage';
 import StartPage from './Components/StartPage';
+import SignUpForm from './Components/SignUpForm';
+import LogInForm from './Components/LogInForm'
 
 const avatarURL = "http://localhost:3000/avatars"
 const userURL = "http://localhost:3000/users"
@@ -12,7 +14,8 @@ class App extends Component {
 
   state = {
     loggedIn: false,
-    avatars: []
+    avatars: [],
+
   }
 
   componentDidMount(){
@@ -38,11 +41,28 @@ class App extends Component {
 
   render(){
     return (
-      
+      <Router>
         <div className="App">
-          <StartPage avatars={this.state.avatars} addUser={this.addUser} logIn={this.logIn}/>
-          
+          <Switch>
+            <Route 
+              exact path="/"
+              component={StartPage}/>
+            <Route 
+              path="/sign_up" 
+              render={() => <SignUpForm 
+                                avatars={this.state.avatars} 
+                                addUser={this.addUser} 
+                                logIn={this.logIn}
+                            />
+                      } 
+            />
+            <Route
+              path='/login'
+              render={() => <LogInForm />}
+              />
+          </Switch>
         </div>
+      </Router>
 
       
     );

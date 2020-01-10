@@ -13,36 +13,31 @@ class StartPage extends Component{
         this.setState({signUp: true})
     }
 
+    redirectToLogIn = () => {
+        this.setState({logIn: true})
+    }
+
     render(){
 
         if(this.state.signUp){
             return <Redirect to='/sign_up' />
         }
 
-    
+        if(this.state.logIn){
+            return <Redirect to='/login' />
+        }
+
         return(
-            <Router>
                 <div className="start-page">
                     <h1>App Name</h1>
                     <div className="buttons">
-                        <button>Log In</button>
+                        <button onClick={this.redirectToLogIn}>Log In</button>
                         <button onClick={this.redirectToSignUp}>
                             Sign Up
                         </button>
                     </div>
+                    
                 </div>
-                <Switch>
-                    <Route 
-                        exact path="/sign_up" 
-                        render={() => <SignUpForm 
-                                        avatars={this.props.avatars} 
-                                        addUser={this.props.addUser} 
-                                        logIn={this.props.logIn}
-                                        />
-                                } 
-                    />
-                </Switch>
-            </Router>
         )
     }
 }
