@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import {Redirect} from 'react-router-dom'
 
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -12,7 +13,12 @@ export default function SimpleMenu() {
 
   const handleClose = () => {
     setAnchorEl(null);
+
   };
+
+  const redirectToStartPage = () =>{
+     return <Redirect to='/' />
+  }
 
   return (
     <div>

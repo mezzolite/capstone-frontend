@@ -1,10 +1,10 @@
 import React from 'react'
 import Header from './Header'
 
-const LoggedInHomePage = () => {
+const LoggedInHomePage = ({avatar}) => {
     return(
         <div className="logged-in-home-page">
-            <Header />
+            <Header avatar={avatar}/>
         </div>
     )
 }

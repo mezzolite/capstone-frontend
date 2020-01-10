@@ -12,6 +12,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {withRouter} from 'react-router-dom'
 
 function Copyright() {
   return (
@@ -46,8 +47,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function LogInForm() {
+function LogInForm({logIn}) {
   const classes = useStyles();
+
+  const handleClick = () => {
+      console.log('can you see me')
+      logIn()
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -92,8 +98,9 @@ export default function LogInForm() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            href="/home"
           >
-            Sign In
+            Log In
           </Button>
           <Grid container>
             <Grid item xs>
@@ -115,3 +122,4 @@ export default function LogInForm() {
     </Container>
   );
 }
+export default withRouter(LogInForm);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AvatarContainer from './AvatarContainer'
+import {withRouter, Redirect} from 'react-router-dom'
 
 class SignUpForm extends Component{
 
@@ -17,12 +18,10 @@ class SignUpForm extends Component{
     }
 
     handleSubmit = (event) => {
-        console.log(event.target)
         event.preventDefault()
         this.props.addUser(this.state)
-        this.props.logIn()
-          
-        event.target.reset()
+        // this.props.logIn()
+        this.props.history.push('/home')          
     }
 
     setAvatar = (avatar) => {
@@ -65,4 +64,4 @@ class SignUpForm extends Component{
         )
     }
 }
-export default SignUpForm
+export default withRouter(SignUpForm);
