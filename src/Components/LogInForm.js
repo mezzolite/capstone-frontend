@@ -47,12 +47,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function LogInForm({logIn}) {
+function LogInForm({getLoggedInAll, history}) {
   const classes = useStyles();
 
-  const handleClick = () => {
-      console.log('can you see me')
-      logIn()
+  const handleSubmit = (event) => {
+    event.preventDefault()  
+    getLoggedInAll(event.target.username.value)
+    history.push("/home")
   }
 
   return (
@@ -65,7 +66,7 @@ function LogInForm({logIn}) {
         <Typography component="h1" variant="h5">
           Log In
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={handleSubmit} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -98,7 +99,6 @@ function LogInForm({logIn}) {
             variant="contained"
             color="primary"
             className={classes.submit}
-            href="/home"
           >
             Log In
           </Button>

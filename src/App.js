@@ -44,7 +44,10 @@ class App extends Component {
     })
       .then(() => this.setState({loggedInUser: user}))
       .then(this.getLoggedInAvatar)
-    
+  }
+
+  getLoggedInUser = (username) => {
+    this.setState({loggedInUser: this.state.users.find(user => user.username === username)})
   }
 
   logIn = () => {
@@ -54,6 +57,12 @@ class App extends Component {
   getLoggedInAvatar = () => {
     this.setState({loggedInAvatar: this.state.avatars.find(avatar => avatar.id === this.state.loggedInUser.avatar_id)})
   }
+
+  getLoggedInAll = (username) => {
+    this.getLoggedInUser(username)
+    this.getLoggedInAvatar()
+  }
+
   
 
 
@@ -75,7 +84,7 @@ class App extends Component {
             />
             <Route
               path='/login'
-              render={() => <LogInForm logIn={this.logIn}/>}
+              render={() => <LogInForm getLoggedInAll={this.getLoggedInAll}/>}
               />
             <Route 
               path='/home'
