@@ -1,0 +1,23 @@
+.header {
+    // display: flex;
+    // justify-content: space-between;
+    background-color: $tea-green;
+    padding: 1%;
+    // display: flex;
+    // align-items: baseline;
+    // justify-content: space-between;
+    // align-content: space-between;
+}
+
+.header > h1 {
+    font-family: $header-font;
+    font-size: 40px;
+    color: $russian-green;
+    // margin: 2%;
+}
+
+.avatar {
+    float: right;
+    margin-bottom: 10%;
+    // align-self: flex-end;
+}

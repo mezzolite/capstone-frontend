@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './App.css';
+import './css/App.css';
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, withRouter} from 'react-router-dom';
 import LoggedInHomePage from './Components/LoggedInHomePage';
 import StartPage from './Components/StartPage';
@@ -17,7 +17,8 @@ class App extends Component {
     avatars: [],
     users: [],
     loggedInUser: null,
-    loggedInAvatar: null
+    loggedInAvatar: null,
+    mainAvatar: null
   }
 
  componentDidMount(){
@@ -31,6 +32,11 @@ class App extends Component {
         users: res2
       })
     })
+    .then(
+      () =>{
+        this.getMainAvatar()
+      }
+    )
  }
 
   addUser = (user) => {
@@ -43,8 +49,17 @@ class App extends Component {
       body: JSON.stringify(user)
     })
       .then(() => this.setState({loggedInUser: user}))
-      .then(this.getLoggedInAvatar)
-    
+      .then(() => {
+        this.getLoggedInAvatar()
+      })
+  }
+
+  getMainAvatar = () => {
+    this.setState({mainAvatar: this.state.avatars.find(avatar => avatar.name === "pink hair")})
+  }
+
+  getLoggedInUser = (username) => {
+    this.setState({loggedInUser: this.state.users.find(user => user.username === username)})
   }
 
   logIn = () => {
@@ -52,8 +67,16 @@ class App extends Component {
   }
 
   getLoggedInAvatar = () => {
-    this.setState({loggedInAvatar: this.state.avatars.find(avatar => avatar.id === this.state.loggedInUser.avatar_id)})
+    if(this.state.loggedInUser){
+      this.setState({loggedInAvatar: this.state.avatars.find(avatar => avatar.id === this.state.loggedInUser.avatar_id)})
+    }
   }
+
+  getLoggedInAll = (username) => {
+    this.getLoggedInUser(username)
+    this.getLoggedInAvatar()
+  }
+
   
 
 
@@ -75,14 +98,14 @@ class App extends Component {
             />
             <Route
               path='/login'
-              render={() => <LogInForm logIn={this.logIn}/>}
+              render={() => <LogInForm getLoggedInAll={this.getLoggedInAll}/>}
               />
             <Route 
               path='/home'
               render={() => <LoggedInHomePage avatar={this.state.loggedInAvatar}/>}
             />
             <Route exact path="/"
-              render={() => <StartPage/>}
+              render={() => <StartPage avatar={this.state.mainAvatar}/>}
             />
           </Switch>
         </div>

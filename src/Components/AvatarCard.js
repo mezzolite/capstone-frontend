@@ -25,6 +25,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function AvatarCard({avatar, setAvatar}) {
+    console.log(avatar)
   const classes = useStyles();
 
   const handleClick = (event) => {
