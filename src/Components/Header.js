@@ -5,12 +5,14 @@ import AvatarCard from './AvatarCard'
 const Header = ({avatar}) => {
     return(
         <div className="header">
-            <h1>App Name</h1>
-            <SimpleMenu />
-            {avatar 
-            ? <AvatarCard avatar={avatar}/>
-            : null
-            }
+            <div className="avatar">
+                {avatar 
+                ? <AvatarCard avatar={avatar}/>
+                : null
+                }
+            </div>
+            <h1>Imp-Politic</h1>
+            {/* <SimpleMenu /> */}
         </div>
     )
 }

@@ -2,3 +2,8 @@
 @import './colors';
 @import './fonts';
 @import './start-page';
+@import './header';
+
+body, .App, .start-page {
+    height: 100vh;
+}

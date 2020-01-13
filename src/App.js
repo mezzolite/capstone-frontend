@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/App';
+import './css/App.css';
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, withRouter} from 'react-router-dom';
 import LoggedInHomePage from './Components/LoggedInHomePage';
 import StartPage from './Components/StartPage';
@@ -17,7 +17,8 @@ class App extends Component {
     avatars: [],
     users: [],
     loggedInUser: null,
-    loggedInAvatar: null
+    loggedInAvatar: null,
+    mainAvatar: null
   }
 
  componentDidMount(){
@@ -31,6 +32,11 @@ class App extends Component {
         users: res2
       })
     })
+    .then(
+      () =>{
+        this.getMainAvatar()
+      }
+    )
  }
 
   addUser = (user) => {
@@ -43,7 +49,13 @@ class App extends Component {
       body: JSON.stringify(user)
     })
       .then(() => this.setState({loggedInUser: user}))
-      .then(this.getLoggedInAvatar)
+      .then(() => {
+        this.getLoggedInAvatar()
+      })
+  }
+
+  getMainAvatar = () => {
+    this.setState({mainAvatar: this.state.avatars.find(avatar => avatar.name === "pink hair")})
   }
 
   getLoggedInUser = (username) => {
@@ -55,7 +67,9 @@ class App extends Component {
   }
 
   getLoggedInAvatar = () => {
-    this.setState({loggedInAvatar: this.state.avatars.find(avatar => avatar.id === this.state.loggedInUser.avatar_id)})
+    if(this.state.loggedInUser){
+      this.setState({loggedInAvatar: this.state.avatars.find(avatar => avatar.id === this.state.loggedInUser.avatar_id)})
+    }
   }
 
   getLoggedInAll = (username) => {
@@ -91,7 +105,7 @@ class App extends Component {
               render={() => <LoggedInHomePage avatar={this.state.loggedInAvatar}/>}
             />
             <Route exact path="/"
-              render={() => <StartPage/>}
+              render={() => <StartPage avatar={this.state.mainAvatar}/>}
             />
           </Switch>
         </div>

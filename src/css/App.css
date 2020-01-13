@@ -46,4 +46,48 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.start-page {
+  background-color: #F9EBE0; }
+
+.buttons > button {
+  color: #393E41 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #FF8A78;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s; }
+
+.buttons > button:hover {
+  background: #BEF9C2;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s; }
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 20%;
+  background-color: #F9EBE0; }
+
+.header {
+  background-color: #BEF9C2;
+  padding: 1%; }
+
+.header > h1 {
+  font-family: "Girassol", cursive;
+  font-size: 40px;
+  color: #73956F; }
+
+.avatar {
+  float: right;
+  margin-bottom: 10%; }
+
+body, .App, .start-page {
+  height: 100vh; }
+
 /*# sourceMappingURL=App.css.map */

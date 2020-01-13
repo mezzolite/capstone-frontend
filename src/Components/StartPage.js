@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignUpForm from './SignUpForm';
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
+import Header from './Header'
 
 
 class StartPage extends Component{
@@ -9,6 +10,7 @@ class StartPage extends Component{
         signUp: false,
         logIn: false
     }
+
     redirectToSignUp = () => {
         this.setState({signUp: true})
     }
@@ -29,14 +31,18 @@ class StartPage extends Component{
 
         return(
                 <div className="start-page">
-                    <h1>App Name</h1>
+                    <div className='header'>
+                    {this.props.avatar
+                        ? <Header avatar={this.props.avatar} />
+                        : null
+                    }
+                    </div>
                     <div className="buttons">
                         <button onClick={this.redirectToLogIn}>Log In</button>
                         <button onClick={this.redirectToSignUp}>
                             Sign Up
                         </button>
                     </div>
-                    
                 </div>
         )
     }
