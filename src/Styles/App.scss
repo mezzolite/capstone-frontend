@@ -3,7 +3,12 @@
 @import './fonts';
 @import './start-page';
 @import './header';
+@import './sign-up-form';
 
 body, .App, .start-page {
     height: 100vh;
+}
+
+.App {
+   background-color: $tea-green;
 }

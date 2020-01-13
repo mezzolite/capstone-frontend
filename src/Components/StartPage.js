@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SignUpForm from './SignUpForm';
-import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import Header from './Header'
 
 
@@ -11,23 +11,15 @@ class StartPage extends Component{
         logIn: false
     }
 
-    redirectToSignUp = () => {
-        this.setState({signUp: true})
+    goToSignUp = () => {
+        this.props.history.push('/sign_up')
     }
 
-    redirectToLogIn = () => {
-        this.setState({logIn: true})
+    goToLogIn = () => {
+        this.props.history.push('/login')
     }
 
     render(){
-
-        if(this.state.signUp){
-            return <Redirect to='/sign_up' />
-        }
-
-        if(this.state.logIn){
-            return <Redirect to='/login' />
-        }
 
         return(
                 <div className="start-page">
@@ -38,8 +30,8 @@ class StartPage extends Component{
                     }
                     </div>
                     <div className="buttons">
-                        <button onClick={this.redirectToLogIn}>Log In</button>
-                        <button onClick={this.redirectToSignUp}>
+                        <button onClick={this.goToLogIn}>Log In</button>
+                        <button onClick={this.goToSignUp}>
                             Sign Up
                         </button>
                     </div>
@@ -47,4 +39,4 @@ class StartPage extends Component{
         )
     }
 }
-export default StartPage
+export default withRouter(StartPage)

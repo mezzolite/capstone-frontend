@@ -31,35 +31,50 @@ class SignUpForm extends Component{
     render(){
         return(
             <form className="sign-up-form" onSubmit={this.handleSubmit}>
-                <label for="username">Username</label>
-                <input 
-                    type="text" 
-                    name="username"
-                    id="username" 
-                    value={this.state.username}
-                    onChange={this.setValue}
-                />
-                <label for="password">Password</label>
-                <input 
-                    type="password" 
-                    name="password" 
-                    id="password"
-                    value={this.state.password}
-                    onChange={this.setValue}
-                />
-                <label for="zipcode">Zipcode</label>
-                <input 
-                    type="number" 
-                    name="zipcode" 
-                    id="zipcode"
-                    value={this.state.zipcode}
-                    onChange={this.setValue}
-                />
-                <div className="avatar-selection">
-                    Pick an Avatar:
-                    <AvatarContainer avatars={this.props.avatars} setAvatar={this.setAvatar}/>
-                </div>
-                <input type="submit" name="submit" value="Sign Up" />
+                <h1>SIGN UP</h1>
+                <ul>
+                    <li>
+                        <label for="username">Username</label>
+                        <input 
+                            type="text" 
+                            name="username"
+                            id="username" 
+                            value={this.state.username}
+                            onChange={this.setValue}
+                            required
+                        />
+                    </li>
+                
+                    <li>
+                        <label for="password">Password</label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password"
+                            value={this.state.password}
+                            onChange={this.setValue}
+                            required
+                        />
+                    </li>
+                    <li>
+                        <label for="zipcode">Zipcode</label>
+                        <input 
+                            type="number" 
+                            name="zipcode" 
+                            id="zipcode"
+                            value={this.state.zipcode}
+                            onChange={this.setValue}
+                            required
+                        />
+                    </li>
+                    <li className="avatar-selection" id="avatar-selection">
+                        <label for='avatar-selection'>Pick an Avatar</label>
+                        <AvatarContainer avatars={this.props.avatars} setAvatar={this.setAvatar}/>
+                    </li>
+                    <li>
+                        <input type="submit" name="submit" value="Sign Up" />
+                    </li>
+                </ul>
             </form>
         )
     }

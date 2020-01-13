@@ -58,23 +58,17 @@ class App extends Component {
     this.setState({mainAvatar: this.state.avatars.find(avatar => avatar.name === "pink hair")})
   }
 
-  getLoggedInUser = (username) => {
-    this.setState({loggedInUser: this.state.users.find(user => user.username === username)})
+  getLoggedInAll = (username) => {
+    const user = this.state.users.find(user => user.username === username)
+    const avatar = this.state.avatars.find(avatar => avatar.id === user.avatar_id)
+    this.setState({
+      loggedInUser: user,
+      loggedInAvatar: avatar
+    })
   }
 
   logIn = () => {
     this.setState({loggedIn: true})
-  }
-
-  getLoggedInAvatar = () => {
-    if(this.state.loggedInUser){
-      this.setState({loggedInAvatar: this.state.avatars.find(avatar => avatar.id === this.state.loggedInUser.avatar_id)})
-    }
-  }
-
-  getLoggedInAll = (username) => {
-    this.getLoggedInUser(username)
-    this.getLoggedInAvatar()
   }
 
   
