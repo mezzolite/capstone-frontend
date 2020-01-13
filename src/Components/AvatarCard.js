@@ -20,12 +20,11 @@ const useStyles = makeStyles(theme => ({
   clicked: {
       borderStyle: 'solid',
       borderWidth: 3,
-      borderColor: 'red'
+      borderColor: "#FF8A78"
   }
 }));
 
 export default function AvatarCard({avatar, setAvatar}) {
-    console.log(avatar)
   const classes = useStyles();
 
   const handleClick = (event) => {
