@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './App.css';
+import './css/App';
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, withRouter} from 'react-router-dom';
 import LoggedInHomePage from './Components/LoggedInHomePage';
 import StartPage from './Components/StartPage';
