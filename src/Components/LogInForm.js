@@ -47,13 +47,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function LogInForm({getLoggedInAll, history}) {
+function LogInForm({getLoggedInAll, history, logInUser}) {
   const classes = useStyles();
 
   const handleSubmit = (event) => {
-    event.preventDefault()  
-    getLoggedInAll(event.target.username.value)
-    history.push("/home")
+    event.preventDefault() 
+    const formData = new FormData(event.target)
+    const username = formData.get('username')
+    const password = formData.get('password')
+
+    logInUser({username, password})
+    getLoggedInAll(username)
+    // history.push("/home")
   }
 
   return (
