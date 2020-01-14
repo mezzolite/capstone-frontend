@@ -20,8 +20,7 @@ class SignUpForm extends Component{
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addUser(this.state)
-        // this.props.logIn()
-        this.props.history.push('/home')          
+        this.props.history.push('/login')          
     }
 
     setAvatar = (avatar) => {

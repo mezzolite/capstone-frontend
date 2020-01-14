@@ -8,6 +8,7 @@ import LogInForm from './Components/LogInForm'
 
 const avatarURL = "http://localhost:3000/avatars"
 const userURL = "http://localhost:3000/users"
+const loginURL = "http://localhost:3000/login"
 
 
 class App extends Component {
@@ -48,10 +49,30 @@ class App extends Component {
       },
       body: JSON.stringify(user)
     })
-      .then(() => this.setState({loggedInUser: user}))
-      .then(() => {
-        this.getLoggedInAvatar()
+  }
+
+  logInUser = (user) => {
+    fetch(loginURL, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    }).then(response => response.json())
+      .then(user => {
+        localStorage.setItem('token', user.token)
+      }) 
+      .then(()=>{
+        this.toggleIsLoggedIn()
       })
+  }
+
+  toggleIsLoggedIn = () => {
+    const token = localStorage.getItem('token')
+    if(token){
+      this.setState({loggedIn: true})
+    } 
   }
 
   getMainAvatar = () => {
@@ -92,7 +113,10 @@ class App extends Component {
             />
             <Route
               path='/login'
-              render={() => <LogInForm getLoggedInAll={this.getLoggedInAll}/>}
+              render={() => <LogInForm 
+                                getLoggedInAll={this.getLoggedInAll}
+                                logInUser={this.logInUser}
+                            />}
               />
             <Route 
               path='/home'
