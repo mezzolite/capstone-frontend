@@ -1,36 +1,86 @@
-.start-page{
-    background-color: $moccasin;
-}
+@media only screen 
+    and (min-device-width: 320px)
+    and (max-device-width: 900px) {
 
-.buttons > button {
-    font-family: $action-font;
-    font-size: 20px;
-    font-weight: bolder;
-    color: $tea-green !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: $tea-rose;
-    padding: 20px;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
-    margin: 10%;
-}
+        .start-page{
+            background-color: $moccasin;
+        }
+        
+        .buttons > button {
+            font-family: $action-font;
+            font-size: 20px;
+            font-weight: bolder;
+            color: $tea-green !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: $tea-rose;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            transition: all 0.4s ease 0s;
+            margin: 10%;
+        }
+        
+        .buttons > button:hover { 
+            background: $russian-green;
+            letter-spacing: 1px;
+            -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+            transition: all 0.4s ease 0s;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin: 20%;
+            background-color: $moccasin;
+        }
 
-.buttons > button:hover { 
-    background: $russian-green;
-    letter-spacing: 1px;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-    transition: all 0.4s ease 0s;
-}
+    }
 
-.buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 20%;
-    background-color: $moccasin;
-}
+    @media 
+    (min-device-width: 901px)
+    {
+        .start-page{
+            background-color: $moccasin;
+        }
+        
+        .buttons > button {
+            font-family: $action-font;
+            font-size: 20px;
+            font-weight: bolder;
+            color: $tea-green !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: $tea-rose;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            transition: all 0.4s ease 0s;
+            margin: 5%;
+        }
+        
+        .buttons > button:hover { 
+            background: $russian-green;
+            letter-spacing: 1px;
+            -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+            transition: all 0.4s ease 0s;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin: 10%;
+            background-color: $moccasin;
+        }
+
+    }
+
+

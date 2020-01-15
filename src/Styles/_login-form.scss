@@ -1,33 +1,31 @@
-.sign-up-form {
+.login-form{
     background-color: $moccasin;
     font-family: $user-font;
     max-width:400px;
     margin: 30px auto;
-    // margin-left:50px auto;
-    // margin-right: 50px auto;
 	border-radius:2px;
     padding:20px;
     align-content: center;
 }
 
-.sign-up-form ul{
+.login-form ul{
 	list-style:none;
 	padding:0;
 	margin:0;	
 }
-.sign-up-form li{
+.login-form li{
 	display: block;
 	padding: 9px;
 	border:1px solid $russian-green;
 	margin-bottom: 30px;
 	border-radius: 3px;
 }
-.sign-up-form li:last-child{
+.login-form .submit-button{
 	border:none;
 	margin-bottom: 0px;
 	text-align: center;
 }
-.sign-up-form li > label{
+.login-form li > label{
 	display: block;
 	float: left;
 	margin-top: -19px;
@@ -39,11 +37,10 @@
 	overflow: hidden;
 	font-family: $user-font;
 }
-.sign-up-form input[type="text"],
-.sign-up-form input[type="password"],
-.sign-up-form input[type="number"],
-.sign-up-form textarea,
-.sign-up-form select 
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form textarea,
+.login-form select 
 {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -59,10 +56,10 @@
 	font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.sign-up-form textarea{
+.login-form textarea{
 	resize:none;
 }
-.sign-up-form input[type="submit"]{
+.login-form input[type="submit"]{
 	background: $russian-green;
 	border: none;
 	padding: 10px 20px 10px 20px;
@@ -70,20 +67,26 @@
 	border-radius: 3px;
 	color: $moccasin;
 }
-.form-style-7 input[type="submit"]:hover{
+.login-form input[type="submit"]:hover{
 	background: $tea-rose;
 	color:$tea-green;
 }
 
-.avatar-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.sign-up-form > h1 {
+.login-form > h2 {
     font-size: 30px;
     color: $russian-green;
     margin-bottom: 20px;
-    margin-left: 35%;
+    margin-left: 40%;
 }
+
+.login-form li:last-child{
+	border:none;
+	margin-bottom: 0px;
+    text-align: center;
+}
+
+.sign-up-link{
+    text-decoration: none;
+    color: $tea-rose;
+}
+
