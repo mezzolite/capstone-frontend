@@ -38,6 +38,9 @@ class App extends Component {
         this.getMainAvatar()
       }
     )
+    .then(() => {
+      this.toggleIsLoggedIn()
+    })
  }
 
   addUser = (user) => {
@@ -59,9 +62,12 @@ class App extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(user)
-    }).then(response => response.json())
-      .then(user => {
-        localStorage.setItem('token', user.token)
+    })
+      .then(response => response.json())
+      .then(result => {
+        localStorage.setItem('token', result.token)
+        console.log(user.username)
+        localStorage.setItem('username', JSON.stringify(user.username))
       }) 
       .then(()=>{
         this.toggleIsLoggedIn()
@@ -70,9 +76,27 @@ class App extends Component {
 
   toggleIsLoggedIn = () => {
     const token = localStorage.getItem('token')
-    if(token){
-      this.setState({loggedIn: true})
+    const username = JSON.parse(localStorage.getItem('username'))
+
+    if(token && username){
+      this.setState({
+        loggedIn: true,
+        loggedInUser: this.state.users.find(user => user.username === username)
+      })
     } 
+    if(this.state.loggedInUser){
+      const avatar = this.state.avatars.find(avatar => avatar.id === this.state.loggedInUser.avatar_id)
+      this.setState({
+        loggedInAvatar: avatar
+      })
+    }
+  }
+
+  logOut = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('username')
+
+    this.setState({ loggedIn: false})
   }
 
   getMainAvatar = () => {
@@ -92,10 +116,11 @@ class App extends Component {
     this.setState({loggedIn: true})
   }
 
-  
-
-
   render(){
+    
+    // if(this.state.loggedIn){
+    //   return <Redirect to='/home' />
+    // }
 
     return (
       <Router>
@@ -120,7 +145,10 @@ class App extends Component {
               />
             <Route 
               path='/home'
-              render={() => <LoggedInHomePage avatar={this.state.loggedInAvatar}/>}
+              render={() => <LoggedInHomePage 
+                              avatar={this.state.loggedInAvatar}
+                              logOut={this.logOut}
+                              />}
             />
             <Route exact path="/"
               render={() => <StartPage avatar={this.state.mainAvatar}/>}
