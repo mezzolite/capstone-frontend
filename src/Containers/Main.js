@@ -42,6 +42,8 @@ class Main extends Component {
  }
 
   addUser = (user) => {
+    this.setState({users: [...this.state.users, user]})
+    
     fetch(userURL, {
       method: 'POST',
       headers: {
@@ -63,8 +65,12 @@ class Main extends Component {
     })
       .then(response => response.json())
       .then(result => {
-        localStorage.setItem('token', result.token)
-        localStorage.setItem('username', JSON.stringify(user.username))
+        if (result.error){
+          alert(result.error)
+        } else {
+          localStorage.setItem('token', result.token)
+          localStorage.setItem('username', JSON.stringify(user.username))
+        }
       }) 
       .then(()=>{
         this.toggleIsLoggedIn()
@@ -100,15 +106,6 @@ class Main extends Component {
     this.setState({mainAvatar: this.state.avatars.find(avatar => avatar.name === "pink hair")})
   }
 
-  getLoggedInAll = (username) => {
-    const user = this.state.users.find(user => user.username === username)
-    const avatar = this.state.avatars.find(avatar => avatar.id === user.avatar_id)
-    this.setState({
-      loggedInUser: user,
-      loggedInAvatar: avatar
-    })
-  }
-
   logIn = () => {
     this.setState({loggedIn: true})
   }
@@ -125,27 +122,28 @@ class Main extends Component {
               render={() => <SignUpForm 
                                 avatars={this.state.avatars} 
                                 addUser={this.addUser} 
-                                logIn={this.logIn}
                             />
                       } 
             />
             <Route
               path='/login'
               render={() => <LogInForm 
-                                getLoggedInAll={this.getLoggedInAll}
                                 logInUser={this.logInUser}
+                                loggedIn={this.state.loggedIn}
                             />}
               />
-            <Route
+            <AuthenticatedRoute
               path='/home'
-              render={() => <LoggedInHomePage 
-                              avatar={this.state.loggedInAvatar}
-                              logOut={this.logOut}
-                              />}
+              component={() => <LoggedInHomePage 
+                                avatar={this.state.loggedInAvatar}
+                                logOut={this.logOut} />}
             />
-            <Route exact path="/"
-              render={() => <StartPage avatar={this.state.mainAvatar}/>}
-            />
+            <Route exact path="/">
+            {this.state.loggedIn === true
+              ? <Redirect to="/home"/> 
+              : <StartPage avatar={this.state.mainAvatar}/>}
+            </Route>
+          
           </Switch>
         </div>
 
@@ -153,5 +151,23 @@ class Main extends Component {
     );
   }
 }
+
+const AuthenticatedRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      localStorage.getItem("token") ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: "/",
+            state: { from: props.location }
+          }}
+        />
+      )
+    }
+  />
+);
 
 export default Main;

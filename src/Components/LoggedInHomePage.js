@@ -1,5 +1,7 @@
 import React from 'react'
 import Header from './Header'
+import {withRouter} from 'react-router-dom'
+import UserContainer from '../Containers/UserContainer'
 
 const LoggedInHomePage = ({avatar, logOut}) => {
 
@@ -14,4 +16,4 @@ const LoggedInHomePage = ({avatar, logOut}) => {
         </div>
     )
 }
-export default LoggedInHomePage
+export default withRouter(LoggedInHomePage)

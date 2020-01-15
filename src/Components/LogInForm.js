@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom'
 
-const LogInForm = ({getLoggedInAll, history, logInUser}) => {
+const LogInForm = ({history, logInUser, loggedIn}) => {
 
   const handleSubmit = (event) => {
         event.preventDefault() 
@@ -10,8 +10,10 @@ const LogInForm = ({getLoggedInAll, history, logInUser}) => {
         const password = formData.get('password')
     
         logInUser({username, password})
-        getLoggedInAll(username)
-        // history.push("/home")
+        if(loggedIn === true){
+          history.push("/home")
+        }
+        event.target.reset()
       }
 
 
