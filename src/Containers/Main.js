@@ -43,7 +43,7 @@ class Main extends Component {
 
   addUser = (user) => {
     this.setState({users: [...this.state.users, user]})
-    
+
     fetch(userURL, {
       method: 'POST',
       headers: {
@@ -125,13 +125,13 @@ class Main extends Component {
                             />
                       } 
             />
-            <Route
-              path='/login'
-              render={() => <LogInForm 
-                                logInUser={this.logInUser}
-                                loggedIn={this.state.loggedIn}
-                            />}
-              />
+            <Route path='/login'>
+              {this.state.loggedIn === true
+                ? <Redirect to="/home" />
+                : <LogInForm logInUser={this.logInUser} loggedIn={this.state.loggedIn}/>
+              }
+            </Route>
+              
             <AuthenticatedRoute
               path='/home'
               component={() => <LoggedInHomePage 
