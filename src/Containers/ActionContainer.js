@@ -32,7 +32,7 @@ class ActionContainer extends Component {
                 <h3>In the game of democracy, you either participate, or you lose.</h3>
                 {this.state.visibleLPA
                     ? <LowPointActions actions={this.props.actions} toggleVisible={this.toggleLPAState} />
-                    : <button onClick={this.toggleLPAState}>Weekly Actions</button>
+                    : <button onClick={this.toggleLPAState}>Simple Actions</button>
                 }
                 {this.state.visibleHPA
                     ? <HighPointActions actions={this.props.actions} toggleVisible={this.toggleHPAState} />

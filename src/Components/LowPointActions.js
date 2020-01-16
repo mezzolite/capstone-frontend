@@ -18,11 +18,11 @@ const LowPointActions = ({actions, toggleVisible}) => {
 
     return(
 
-        <div className="low-point-actions-container">
+        <div className="partial-actions-container">
             {getLPActions()}
             <button 
                 onClick={closeLPActions}>
-                    {<HighlightOffTwoToneIcon style={{ color: green[500] }} />}
+                    {<HighlightOffTwoToneIcon style={{ color: green[900] }} />}
             </button>
         </div>
     )
