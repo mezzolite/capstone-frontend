@@ -8,6 +8,7 @@ import LogInForm from '../Components/LogInForm'
 const avatarURL = "http://localhost:3000/avatars"
 const userURL = "http://localhost:3000/users"
 const loginURL = "http://localhost:3000/login"
+const actionURL = "http://localhost:3000/actions"
 
 class Main extends Component {
 
@@ -15,20 +16,22 @@ class Main extends Component {
     loggedIn: false,
     avatars: [],
     users: [],
+    actions: [],
     loggedInUser: null,
     loggedInAvatar: null,
     mainAvatar: null
   }
 
  componentDidMount(){
-   Promise.all([fetch(avatarURL), fetch(userURL)])
-    .then(([res1, res2]) => {
-      return Promise.all([res1.json(), res2.json()])
+   Promise.all([fetch(avatarURL), fetch(userURL), fetch(actionURL)])
+    .then(([res1, res2, res3]) => {
+      return Promise.all([res1.json(), res2.json(), res3.json()])
     })
-    .then(([res1, res2]) => {
+    .then(([res1, res2, res3]) => {
       this.setState({
         avatars: res1,
-        users: res2
+        users: res2,
+        actions: res3
       })
     })
     .then(
@@ -136,7 +139,9 @@ class Main extends Component {
               path='/home'
               component={() => <LoggedInHomePage 
                                 avatar={this.state.loggedInAvatar}
-                                logOut={this.logOut} />}
+                                logOut={this.logOut} 
+                                actions={this.state.actions}
+                                />}
             />
             <Route exact path="/">
             {this.state.loggedIn === true
