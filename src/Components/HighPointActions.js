@@ -18,9 +18,8 @@ const HighPointActions = ({actions, toggleVisible}) => {
     return(
         <div className="high-point-actions-container">
             {getHPActions()}
-            <button 
-                onClick={closeLPActions}>
-                    {<HighlightOffTwoToneIcon style={{ color: green[500] }} />}
+            <button aria-label="close" onClick={closeLPActions}>
+                    {<HighlightOffTwoToneIcon style={{ color: green[500] }}  />}
             </button>
         </div>
     )

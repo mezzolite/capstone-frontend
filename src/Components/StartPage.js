@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SignUpForm from './SignUpForm';
 import {withRouter} from 'react-router-dom';
 import Header from './Header'
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AvatarContainer from './AvatarContainer'
-import {withRouter, Redirect} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
 class SignUpForm extends Component{
 

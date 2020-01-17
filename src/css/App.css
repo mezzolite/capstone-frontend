@@ -125,6 +125,20 @@ table {
   color: #73956F;
   margin: 1%; }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
+  .header {
+    background-color: #BEF9C2;
+    height: max-content;
+    display: flex;
+    justify-content: space-between;
+    width: 100%; }
+
+  .header > h1 {
+    font-family: "Girassol", cursive;
+    font-size: 46px;
+    color: #73956F;
+    margin: 1%;
+    align-self: flex-end; } }
 .sign-up-form {
   background-color: #F9EBE0;
   font-family: "Manuale", serif;

@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import {Redirect} from 'react-router-dom'
 
 export default function SimpleMenu() {
@@ -16,14 +17,12 @@ export default function SimpleMenu() {
 
   };
 
-  const redirectToStartPage = () =>{
-     return <Redirect to='/' />
-  }
+
 
   return (
     <div>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Open Menu
+        <MenuRoundedIcon />
       </Button>
       <Menu
         id="simple-menu"
