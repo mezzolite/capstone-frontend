@@ -31,11 +31,11 @@ class ActionContainer extends Component {
             <div className="action-container">
                 <h3>In the game of democracy, you either participate, or you lose.</h3>
                 {this.state.visibleLPA
-                    ? <LowPointActions actions={this.props.actions} toggleVisible={this.toggleLPAState} />
+                    ? <LowPointActions actions={this.props.actions} toggleVisible={this.toggleLPAState} addActionToUser={this.props.addActionToUser}/>
                     : <button onClick={this.toggleLPAState}>Simple Actions</button>
                 }
                 {this.state.visibleHPA
-                    ? <HighPointActions actions={this.props.actions} toggleVisible={this.toggleHPAState} />
+                    ? <HighPointActions actions={this.props.actions} toggleVisible={this.toggleHPAState} addActionToUser={this.props.addActionToUser} />
                     : <button onClick={this.toggleHPAState}>High Point Actions</button>
                 }
             </div>

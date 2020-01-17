@@ -24,7 +24,7 @@ class StartPage extends Component{
                 <div className="start-page">
                     <div className='header'>
                     {this.props.avatar
-                        ? <Header avatar={this.props.avatar} />
+                        ? <Header avatar={this.props.avatar} loggedIn={this.props.loggedIn} />
                         : null
                     }
                     </div>

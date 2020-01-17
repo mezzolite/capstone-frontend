@@ -5,11 +5,17 @@
 @import './header';
 @import './sign-up-form';
 @import './login-form';
+@import './home-page';
 
-body, .App, .start-page {
+body, .App, .start-page, .main {
     height: 100vh;
 }
 
 .App {
    background-color: $tea-green;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
 }

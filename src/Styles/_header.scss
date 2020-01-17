@@ -4,15 +4,25 @@
             background-color: $tea-green;
             height: max-content;
             display: flex;
-            justify-content: space-between;
             width: 100%;
+            
         }
         
         .header > h1 {
             font-family: $header-font;
             font-size: 60px;
             color: $russian-green;
-            margin: 1%;
+            margin: .5%;
+            text-shadow: 1px 1px 2px $tea-rose;
+            margin-left: 2%;
+        }
+
+        .header > .avatar {
+            flex-grow: 1;
+        }
+
+        .header > .menu{
+            margin: .5%;
         }
 
     }
@@ -26,7 +36,6 @@
             background-color: $tea-green;
             height: max-content;
             display: flex;
-            justify-content: space-between;
             width: 100%;
         }
         
@@ -35,11 +44,11 @@
             font-size: 46px;
             color: $russian-green;
             margin: 1%;
-            align-self: flex-end;
+            text-shadow: 1px 1px 2px $tea-rose;
         }
 
         .header > .avatar {
-
+            flex-grow: 1;
         }
 
     }

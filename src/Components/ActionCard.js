@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     }
   }));
 
-const ActionCard = ({action}) => {
+const ActionCard = ({action, addActionToUser}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -30,7 +30,7 @@ const ActionCard = ({action}) => {
     };
 
     const doneButtonClick = () => {
-        
+        addActionToUser(action.id)
     }
 
     const open = Boolean(anchorEl);
@@ -41,7 +41,9 @@ const ActionCard = ({action}) => {
             <li aria-describedby={id} onClick={handleClick}>{action.title}
                 <p>Reward: {action.reward} points</p>
             </li>
-            <button><DoneOutlineRoundedIcon className={classes.doneStyle}/></button>
+            <button onClick={doneButtonClick}>
+                    <DoneOutlineRoundedIcon className={classes.doneStyle}/>
+            </button>
             <Popover
                 id={id}
                 open={open}

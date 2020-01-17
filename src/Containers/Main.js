@@ -9,6 +9,7 @@ const avatarURL = "http://localhost:3000/avatars"
 const userURL = "http://localhost:3000/users"
 const loginURL = "http://localhost:3000/login"
 const actionURL = "http://localhost:3000/actions"
+const userActionsURL = "http://localhost:3000/user-actions"
 
 class Main extends Component {
 
@@ -80,6 +81,21 @@ class Main extends Component {
       })
   }
 
+  addActionToUser = (actionID) => {
+
+    fetch(userActionsURL, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: this.state.loggedInUser.id,
+        action_id: actionID
+      })
+    })
+  }
+
   toggleIsLoggedIn = () => {
     const token = localStorage.getItem('token')
     const username = JSON.parse(localStorage.getItem('username'))
@@ -118,7 +134,7 @@ class Main extends Component {
 
     return (
        
-        <div className="App">
+        <div className="main">
           <Switch>
             <Route 
               path="/sign_up" 
@@ -141,12 +157,16 @@ class Main extends Component {
                                 avatar={this.state.loggedInAvatar}
                                 logOut={this.logOut} 
                                 actions={this.state.actions}
+                                addActionToUser={this.addActionToUser}
+                                loggedIn={this.state.loggedIn}
                                 />}
             />
             <Route exact path="/">
             {this.state.loggedIn === true
               ? <Redirect to="/home"/> 
-              : <StartPage avatar={this.state.mainAvatar}/>}
+              : <StartPage 
+                  avatar={this.state.mainAvatar} 
+                  loggedIn={this.state.loggedIn}/>}
             </Route>
           
           </Switch>

@@ -3,11 +3,11 @@ import ActionCard from './ActionCard'
 import HighlightOffTwoToneIcon from '@material-ui/icons/HighlightOffTwoTone';
 import { green } from '@material-ui/core/colors';
 
-const HighPointActions = ({actions, toggleVisible}) => {
+const HighPointActions = ({actions, toggleVisible, addActionToUser}) => {
     
      const getHPActions = () => {
         return actions.filter(action => action.reward > 45).map(action => {
-            return <ActionCard action={action} key={action.id} />
+            return <ActionCard action={action} key={action.id} addActionToUser={addActionToUser} />
             })
         }
 
