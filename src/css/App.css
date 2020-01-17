@@ -46,9 +46,13 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+* {
+  box-sizing: border-box; }
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
   .start-page {
-    background-color: #F9EBE0; }
+    background-color: #F9EBE0;
+    width: 100%; }
 
   .buttons > button {
     font-family: "Zilla Slab", serif;
@@ -81,7 +85,8 @@ table {
     background-color: #F9EBE0; } }
 @media (min-device-width: 901px) {
   .start-page {
-    background-color: #F9EBE0; }
+    background-color: #F9EBE0;
+    width: 100%; }
 
   .buttons > button {
     font-family: "Zilla Slab", serif;
@@ -112,28 +117,63 @@ table {
     justify-content: space-around;
     margin: 10%;
     background-color: #F9EBE0; } }
-.header {
-  background-color: #BEF9C2;
-  height: max-content;
-  display: flex;
-  justify-content: space-between;
-  width: 100%; }
+@media (min-device-width: 901px) {
+  .header {
+    background-color: #BEF9C2;
+    height: max-content;
+    display: flex;
+    width: 100%; }
 
-.header > h1 {
-  font-family: "Girassol", cursive;
-  font-size: 60px;
-  color: #73956F;
-  margin: 1%; }
+  .header > h1 {
+    font-family: "Girassol", cursive;
+    font-size: 60px;
+    color: #73956F;
+    margin: .5%;
+    text-shadow: 1px 1px 2px #FF8A78;
+    margin-left: 2%; }
 
+  .header > .avatar {
+    flex-grow: 1; }
+
+  .header > .menu {
+    margin: .5%; } }
+@media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
+  .header {
+    background-color: #BEF9C2;
+    height: max-content;
+    display: flex;
+    width: 100%; }
+
+  .header > h1 {
+    font-family: "Girassol", cursive;
+    font-size: 46px;
+    color: #73956F;
+    margin: 1%;
+    text-shadow: 1px 1px 2px #FF8A78; }
+
+  .header > .avatar {
+    flex-grow: 1; } }
 .sign-up-form {
   background-color: #F9EBE0;
   font-family: "Manuale", serif;
   max-width: 400px;
-  margin: 30px auto;
   border-radius: 2px;
   padding: 20px;
-  align-content: center; }
+  align-content: center;
+  box-shadow: 5px 5px 5px #73956F;
+  height: fit-content;
+  margin-top: 2%; }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
+  .sign-up-form {
+    background-color: #F9EBE0;
+    font-family: "Manuale", serif;
+    max-width: 400px;
+    border-radius: 2px;
+    padding: 20px;
+    align-content: center;
+    box-shadow: 5px 5px 5px #73956F;
+    height: fit-content; } }
 .sign-up-form ul {
   list-style: none;
   padding: 0;
@@ -159,7 +199,7 @@ table {
   height: 14px;
   padding: 2px 5px 2px 5px;
   color: #73956F;
-  font-size: 15px;
+  font-size: 14px;
   overflow: hidden;
   font-family: "Manuale", serif; }
 
@@ -211,11 +251,24 @@ table {
   background-color: #F9EBE0;
   font-family: "Manuale", serif;
   max-width: 400px;
-  margin: 30px auto;
   border-radius: 2px;
   padding: 20px;
-  align-content: center; }
+  align-content: center;
+  height: fit-content;
+  box-shadow: 5px 5px 5px #73956F;
+  margin-top: 2%; }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
+  .login-form {
+    background-color: #F9EBE0;
+    font-family: "Manuale", serif;
+    max-width: 400px;
+    border-radius: 2px;
+    padding: 20px;
+    align-content: center;
+    width: 80%;
+    height: fit-content;
+    box-shadow: 5px 5px 5px #73956F; } }
 .login-form ul {
   list-style: none;
   padding: 0;
@@ -241,7 +294,7 @@ table {
   height: 14px;
   padding: 2px 5px 2px 5px;
   color: #73956F;
-  font-size: 15px;
+  font-size: 14px;
   overflow: hidden;
   font-family: "Manuale", serif; }
 
@@ -292,10 +345,17 @@ table {
   text-decoration: none;
   color: #FF8A78; }
 
-body, .App, .start-page {
+.home-page {
+  width: 100%; }
+
+body, .App, .start-page, .main {
   height: 100vh; }
 
 .App {
   background-color: #BEF9C2; }
+
+.main {
+  display: flex;
+  justify-content: center; }
 
 /*# sourceMappingURL=App.css.map */

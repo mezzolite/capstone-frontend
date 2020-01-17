@@ -2,28 +2,53 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import {Redirect} from 'react-router-dom'
+import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import { makeStyles } from '@material-ui/core/styles';
 
-export default function SimpleMenu() {
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    '& > svg': {
+      margin: theme.spacing(2),
+    },
+  },
+  iconStyle: {
+    color: '#73956F'
+  }
+}));
+
+export default function SimpleMenu({logOut}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const classes = useStyles();
+
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleLogOut = () => {
     setAnchorEl(null);
+    logOut()
 
   };
 
-  const redirectToStartPage = () =>{
-     return <Redirect to='/' />
+  const handleMyAccount = () => {
+    setAnchorEl(null);
+
   }
 
+  const handleClose = () =>{
+    setAnchorEl(null);
+  }
+
+
+
+
+
   return (
-    <div>
+    <div className="menu">
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Open Menu
+        <MenuRoundedIcon className={classes.iconStyle} fontSize="large" />
       </Button>
       <Menu
         id="simple-menu"
@@ -32,9 +57,8 @@ export default function SimpleMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleMyAccount}>My account</MenuItem>
+        <MenuItem onClick={handleLogOut}>Logout</MenuItem>
       </Menu>
     </div>
   );

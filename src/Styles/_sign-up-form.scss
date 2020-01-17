@@ -2,13 +2,30 @@
     background-color: $moccasin;
     font-family: $user-font;
     max-width:400px;
-    margin: 30px auto;
-    // margin-left:50px auto;
-    // margin-right: 50px auto;
 	border-radius:2px;
     padding:20px;
-    align-content: center;
+	align-content: center;
+	box-shadow: 5px 5px 5px $russian-green;
+	height: fit-content;
+	margin-top: 2%;
+
 }
+
+@media only screen 
+    and (min-device-width: 320px)
+    and (max-device-width: 900px) {
+		.sign-up-form {
+			background-color: $moccasin;
+			font-family: $user-font;
+			max-width:400px;
+			border-radius:2px;
+			padding:20px;
+			align-content: center;
+			box-shadow: 5px 5px 5px $russian-green;
+			height: fit-content;
+
+		}
+	}
 
 .sign-up-form ul{
 	list-style:none;
@@ -35,7 +52,7 @@
 	height: 14px;
 	padding: 2px 5px 2px 5px;
 	color: $russian-green;
-	font-size: 15px;
+	font-size: 14px;
 	overflow: hidden;
 	font-family: $user-font;
 }

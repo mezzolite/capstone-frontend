@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SignUpForm from './SignUpForm';
 import {withRouter} from 'react-router-dom';
 import Header from './Header'
 
@@ -25,7 +24,7 @@ class StartPage extends Component{
                 <div className="start-page">
                     <div className='header'>
                     {this.props.avatar
-                        ? <Header avatar={this.props.avatar} />
+                        ? <Header avatar={this.props.avatar} loggedIn={this.props.loggedIn} />
                         : null
                     }
                     </div>

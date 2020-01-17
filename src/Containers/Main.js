@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link, Switch, Redirect, withRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import LoggedInHomePage from '../Components/LoggedInHomePage';
 import StartPage from '../Components/StartPage';
 import SignUpForm from '../Components/SignUpForm';
@@ -8,6 +8,8 @@ import LogInForm from '../Components/LogInForm'
 const avatarURL = "http://localhost:3000/avatars"
 const userURL = "http://localhost:3000/users"
 const loginURL = "http://localhost:3000/login"
+const actionURL = "http://localhost:3000/actions"
+const userActionsURL = "http://localhost:3000/user-actions"
 
 class Main extends Component {
 
@@ -15,20 +17,22 @@ class Main extends Component {
     loggedIn: false,
     avatars: [],
     users: [],
+    actions: [],
     loggedInUser: null,
     loggedInAvatar: null,
     mainAvatar: null
   }
 
  componentDidMount(){
-   Promise.all([fetch(avatarURL), fetch(userURL)])
-    .then(([res1, res2]) => {
-      return Promise.all([res1.json(), res2.json()])
+   Promise.all([fetch(avatarURL), fetch(userURL), fetch(actionURL)])
+    .then(([res1, res2, res3]) => {
+      return Promise.all([res1.json(), res2.json(), res3.json()])
     })
-    .then(([res1, res2]) => {
+    .then(([res1, res2, res3]) => {
       this.setState({
         avatars: res1,
-        users: res2
+        users: res2,
+        actions: res3
       })
     })
     .then(
@@ -77,6 +81,21 @@ class Main extends Component {
       })
   }
 
+  addActionToUser = (actionID) => {
+
+    fetch(userActionsURL, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: this.state.loggedInUser.id,
+        action_id: actionID
+      })
+    })
+  }
+
   toggleIsLoggedIn = () => {
     const token = localStorage.getItem('token')
     const username = JSON.parse(localStorage.getItem('username'))
@@ -115,7 +134,7 @@ class Main extends Component {
 
     return (
        
-        <div className="App">
+        <div className="main">
           <Switch>
             <Route 
               path="/sign_up" 
@@ -136,12 +155,18 @@ class Main extends Component {
               path='/home'
               component={() => <LoggedInHomePage 
                                 avatar={this.state.loggedInAvatar}
-                                logOut={this.logOut} />}
+                                logOut={this.logOut} 
+                                actions={this.state.actions}
+                                addActionToUser={this.addActionToUser}
+                                loggedIn={this.state.loggedIn}
+                                />}
             />
             <Route exact path="/">
             {this.state.loggedIn === true
               ? <Redirect to="/home"/> 
-              : <StartPage avatar={this.state.mainAvatar}/>}
+              : <StartPage 
+                  avatar={this.state.mainAvatar} 
+                  loggedIn={this.state.loggedIn}/>}
             </Route>
           
           </Switch>
