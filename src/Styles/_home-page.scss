@@ -1,3 +1,30 @@
 .home-page {
     width: 100%;
+    text-align: center;
 }
+
+.home-page > h3 {
+    font-family: $header-font;
+    color: $russian-green;
+    text-shadow: 1px 1px 2px $moccasin;
+    font-size: 30px;
+    margin: 2%;
+}
+
+@media only screen 
+    and (min-device-width: 320px)
+    and (max-device-width: 900px) {
+
+        .home-page {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .home-page > h3 {
+            font-family: $header-font;
+            color: $russian-green;
+            text-shadow: 2px 2px 4px $moccasin;
+            font-size: 20px;
+            margin: 2%;
+        }
+    }

@@ -11,6 +11,8 @@ const LoggedInHomePage = ({avatar, logOut, actions, addActionToUser, loggedIn}) 
     return(
         <div className="home-page">
             <Header avatar={avatar} loggedIn={loggedIn} logOut={logOut} />
+            <h3>In the game of democracy, you participate, or you lose.</h3>
+
             <UserContainer />
             <ActionContainer actions={actions} addActionToUser={addActionToUser}/>
         </div>

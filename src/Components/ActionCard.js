@@ -2,6 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import DoneOutlineRoundedIcon from '@material-ui/icons/DoneOutlineRounded';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
     typography: {
@@ -10,10 +11,18 @@ const useStyles = makeStyles(theme => ({
     popoverStyle: {
         padding: theme.spacing(2),
         backgroundColor: '#F9EBE0',
-        color: '#73956F'
+        color: '#73956F',
+        fontSize: 20,
+        fontFamily: 'Manuale, serif'
     },
     doneStyle: {
         color: '#FF8A78'
+    },
+    linkStyle: {
+        textTransform: 'uppercase',
+        color: '#393E41',
+        fontWeight: 'bold',
+        cursor: 'pointer'
     }
   }));
 
@@ -42,7 +51,7 @@ const ActionCard = ({action, addActionToUser}) => {
                 <p>Reward: {action.reward} points</p>
             </li>
             <button onClick={doneButtonClick}>
-                    <DoneOutlineRoundedIcon className={classes.doneStyle}/>
+                   Click to collect reward when done: <DoneOutlineRoundedIcon className={classes.doneStyle}/>
             </button>
             <Popover
                 id={id}
@@ -59,8 +68,8 @@ const ActionCard = ({action, addActionToUser}) => {
                 }}
             >
                 <div className={classes.popoverStyle}>
-                    <p>{action.description}</p>
-                    <a href={action.link} target="_blank" rel="noopener noreferrer">Action Info Here</a>
+                    <p className="description">{action.description}</p>
+                    <Link className={classes.linkStyle} href={action.link} target="_blank" rel="noopener noreferrer">Complete action here </Link>
 
                 </div>
             </Popover>

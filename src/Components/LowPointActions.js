@@ -18,7 +18,7 @@ const LowPointActions = ({actions, toggleVisible, addActionToUser}) => {
 
     return(
 
-        <div className="partial-actions-container">
+        <div className="partial-action-container">
             {getLPActions()}
             <button aria-label="close"onClick={closeLPActions}>
                     {<HighlightOffTwoToneIcon style={{ color: green[900] }} />}

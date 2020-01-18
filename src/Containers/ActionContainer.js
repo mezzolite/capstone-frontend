@@ -29,7 +29,6 @@ class ActionContainer extends Component {
     render(){
         return(
             <div className="action-container">
-                <h3>In the game of democracy, you either participate, or you lose.</h3>
                 {this.state.visibleLPA
                     ? <LowPointActions actions={this.props.actions} toggleVisible={this.toggleLPAState} addActionToUser={this.props.addActionToUser}/>
                     : <button onClick={this.toggleLPAState}>Simple Actions</button>
