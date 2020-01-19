@@ -1,0 +1,155 @@
+.action-container {
+    background-color: $tea-green;
+}
+
+@media only screen 
+    and (min-device-width: 320px)
+    and (max-device-width: 900px){
+       
+        .action-container > button {
+            font-family: $action-font;
+            font-size: 17px;
+            font-weight: bolder;
+            color: $moccasin !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: $tea-rose;
+            padding: 15px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            transition: all 0.4s ease 0s;
+            margin: 10%;
+            box-shadow: 5px 5px 5px $russian-green; 
+            text-shadow: 1px 1px 2px $russian-green;
+        }
+
+        .action-card {
+            background-color: $black-olive;
+            margin-bottom: 2%;
+            margin-left: 5%;
+            margin-right: 5%;
+            list-style-type: none;
+            border-radius: 10px;
+            font-family: $user-font;
+            font-size: 20px;
+            padding: 2%;
+            color: $russian-green;
+            // text-transform: uppercase;
+            
+        }
+
+        .action-card > li > p {
+            margin-top: 2%;
+            margin-bottom: 2%;
+            font-size: 16px;
+        }
+
+        .action-card > button {
+            color: #939597;
+        }
+
+        .description {
+            padding-bottom: 4%;
+        }
+
+        .reward-description {
+            font-size: 20px;
+        }
+
+        .inner-reward-action {
+            color: $moccasin;
+        }
+
+
+    }
+
+@media 
+    (min-device-width: 901px) {
+        .action-container > button {
+            font-family: $action-font;
+            font-size: 20px;
+            font-weight: bolder;
+            color: $moccasin !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: $tea-rose;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            transition: all 0.4s ease 0s;   
+            margin: 8%;
+            box-shadow: 5px 5px 5px $russian-green;
+            text-shadow: 1px 1px 2px $russian-green;
+            cursor: pointer;
+        }
+
+        .action-container > button:hover { 
+            background: $russian-green;
+            letter-spacing: 1px;
+            -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            box-shadow: 1px 1px 1px $russian-green;
+            transition: all 0.4s ease 0s;
+        }
+
+        .action-card {
+            background-color: $black-olive;
+            margin-left: 30%;
+            margin-right: 30%;
+            margin-bottom: 2%;
+            list-style-type: none;
+            border-radius: 10px;
+            font-family: $user-font;
+            font-size: 28px;
+            padding: 2%;
+            color: $russian-green;
+            // text-transform: uppercase;
+            
+        }
+
+        .action-card > li {
+            cursor: pointer;
+        }
+
+        .action-card > li > p {
+            margin-top: 2%;
+            margin-bottom: 2%;
+            font-size: 16px;
+        }
+
+        .action-card > button {
+            background-color: unset;
+            border: unset;
+            color: #939597;
+            cursor: pointer;
+        }
+
+        .description {
+            padding-bottom: 1%;
+            font-size: 30px;
+            padding-left: 30%;
+            padding-right: 30%;
+        }
+
+        .partial-action-container > button {
+            background-color: unset;
+            border: unset;
+            margin-bottom: 2%;
+        }
+
+        #action-link {
+            padding-left: 30%;
+        }
+
+        .reward-description {
+            font-size: 30px;
+        }
+
+        .inner-reward-action {
+            color: $moccasin;
+        }
+
+    }
+

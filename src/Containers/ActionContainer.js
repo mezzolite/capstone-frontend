@@ -29,13 +29,22 @@ class ActionContainer extends Component {
     render(){
         return(
             <div className="action-container">
-                <h3>In the game of democracy, you either participate, or you lose.</h3>
                 {this.state.visibleLPA
-                    ? <LowPointActions actions={this.props.actions} toggleVisible={this.toggleLPAState} addActionToUser={this.props.addActionToUser}/>
+                    ? <LowPointActions 
+                        actions={this.props.actions} 
+                        toggleVisible={this.toggleLPAState} 
+                        addActionToUser={this.props.addActionToUser}
+                        addRewardToPoints={this.props.addRewardToPoints}
+                        />
                     : <button onClick={this.toggleLPAState}>Simple Actions</button>
                 }
                 {this.state.visibleHPA
-                    ? <HighPointActions actions={this.props.actions} toggleVisible={this.toggleHPAState} addActionToUser={this.props.addActionToUser} />
+                    ? <HighPointActions 
+                        actions={this.props.actions} 
+                        toggleVisible={this.toggleHPAState} 
+                        addActionToUser={this.props.addActionToUser} 
+                        addRewardToPoints={this.props.addRewardToPoints}
+                        />
                     : <button onClick={this.toggleHPAState}>High Point Actions</button>
                 }
             </div>

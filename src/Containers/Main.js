@@ -20,7 +20,8 @@ class Main extends Component {
     actions: [],
     loggedInUser: null,
     loggedInAvatar: null,
-    mainAvatar: null
+    mainAvatar: null,
+    loggedInUserPoints: 0
   }
 
  componentDidMount(){
@@ -111,6 +112,7 @@ class Main extends Component {
       this.setState({
         loggedInAvatar: avatar
       })
+      this.getLoggedInUserPoints()
     }
   }
 
@@ -129,6 +131,16 @@ class Main extends Component {
     this.setState({loggedIn: true})
   }
 
+  getLoggedInUserPoints = () => {
+    if(this.loggedInUser && this.loggedInUser.actions.length > 0){
+      const allRewards = this.state.loggedInUser.actions.map(action => action.reward)
+      this.setState({loggedInUserPoints: allRewards.reduce((total, reward)=> total + reward)})
+    }
+  }
+
+  addRewardToPoints = (reward) => {
+    this.setState({loggedInUserPoints: this.state.loggedInUserPoints + reward})
+  }
 
   render(){
 
@@ -159,6 +171,7 @@ class Main extends Component {
                                 actions={this.state.actions}
                                 addActionToUser={this.addActionToUser}
                                 loggedIn={this.state.loggedIn}
+                                addRewardToPoints={this.addRewardToPoints}
                                 />}
             />
             <Route exact path="/">
