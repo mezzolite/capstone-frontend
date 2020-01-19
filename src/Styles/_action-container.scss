@@ -53,6 +53,15 @@
             padding-bottom: 4%;
         }
 
+        .reward-description {
+            font-size: 20px;
+        }
+
+        .inner-reward-action {
+            color: $moccasin;
+        }
+
+
     }
 
 @media 
@@ -119,12 +128,27 @@
 
         .description {
             padding-bottom: 1%;
+            font-size: 30px;
+            padding-left: 30%;
+            padding-right: 30%;
         }
 
         .partial-action-container > button {
             background-color: unset;
             border: unset;
             margin-bottom: 2%;
+        }
+
+        #action-link {
+            padding-left: 30%;
+        }
+
+        .reward-description {
+            font-size: 30px;
+        }
+
+        .inner-reward-action {
+            color: $moccasin;
         }
 
     }

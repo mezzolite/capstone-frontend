@@ -3,6 +3,22 @@ import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import DoneOutlineRoundedIcon from '@material-ui/icons/DoneOutlineRounded';
 import Link from '@material-ui/core/Link';
+import Modal from '@material-ui/core/Modal';
+
+function rand() {
+  return Math.round(Math.random() * 20) - 10;
+}
+
+function getModalStyle() {
+  const top = 50 + rand();
+  const left = 50 + rand();
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
 
 const useStyles = makeStyles(theme => ({
     typography: {
@@ -23,12 +39,25 @@ const useStyles = makeStyles(theme => ({
         color: '#393E41',
         fontWeight: 'bold',
         cursor: 'pointer'
-    }
+    },
+    paper: {
+        position: 'absolute',
+        // width: 400,
+        backgroundColor: "#393E41",
+        color: '#FF8A78',
+        // border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+        fontFamily: 'Manuale, serif', 
+        outline: 0
+      }
   }));
 
 const ActionCard = ({action, addActionToUser}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [modalStyle] = React.useState(getModalStyle);
+    const [open, setOpen] = React.useState(false);
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget);
@@ -37,17 +66,23 @@ const ActionCard = ({action, addActionToUser}) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    
+      const handleModalClose = () => {
+        setOpen(false);
+      };
 
-    const doneButtonClick = () => {
+    const doneButtonClick = (event) => {
+        setOpen(true)
         addActionToUser(action.id)
     }
 
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
+    const popoverOpen = Boolean(anchorEl);
+    const id = popoverOpen ? 'simple-popover' : undefined;
 
     return(
         <div className="action-card" >
-            <li aria-describedby={id} onClick={handleClick}>{action.title}
+            <li aria-describedby={id} onClick={handleClick}>
+                {action.title}
                 <p>Reward: {action.reward} points</p>
             </li>
             <button onClick={doneButtonClick}>
@@ -55,7 +90,7 @@ const ActionCard = ({action, addActionToUser}) => {
             </button>
             <Popover
                 id={id}
-                open={open}
+                open={popoverOpen}
                 anchorEl={anchorEl}
                 onClose={handleClose}
                 anchorOrigin={{
@@ -69,10 +104,24 @@ const ActionCard = ({action, addActionToUser}) => {
             >
                 <div className={classes.popoverStyle}>
                     <p className="description">{action.description}</p>
-                    <Link className={classes.linkStyle} href={action.link} target="_blank" rel="noopener noreferrer">Complete action here </Link>
+                    <Link id="action-link" className={classes.linkStyle} href={action.link} target="_blank" rel="noopener noreferrer">Complete action here </Link>
 
                 </div>
             </Popover>
+            <Modal
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+                open={open}
+                onClose={handleModalClose}
+            >
+                <div style={modalStyle} className={classes.paper}>
+                    <p className="reward-description">You've completed action:
+                        <p className="inner-reward-action">{action.title}</p>
+                    </p>
+                    <p className="reward-description">Your reward of {action.reward} points has been added to your account!</p>
+                </div>
+            </Modal>
+        
         </div>
     )
 

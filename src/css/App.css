@@ -408,7 +408,13 @@ table {
     color: #939597; }
 
   .description {
-    padding-bottom: 4%; } }
+    padding-bottom: 4%; }
+
+  .reward-description {
+    font-size: 20px; }
+
+  .inner-reward-action {
+    color: #F9EBE0; } }
 @media (min-device-width: 901px) {
   .action-container > button {
     font-family: "Zilla Slab", serif;
@@ -463,12 +469,24 @@ table {
     cursor: pointer; }
 
   .description {
-    padding-bottom: 1%; }
+    padding-bottom: 1%;
+    font-size: 30px;
+    padding-left: 30%;
+    padding-right: 30%; }
 
   .partial-action-container > button {
     background-color: unset;
     border: unset;
-    margin-bottom: 2%; } }
+    margin-bottom: 2%; }
+
+  #action-link {
+    padding-left: 30%; }
+
+  .reward-description {
+    font-size: 30px; }
+
+  .inner-reward-action {
+    color: #F9EBE0; } }
 body, .App, .start-page, .main {
   height: 100vh; }
 
