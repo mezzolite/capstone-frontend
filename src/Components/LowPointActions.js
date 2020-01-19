@@ -4,11 +4,16 @@ import HighlightOffTwoToneIcon from '@material-ui/icons/HighlightOffTwoTone';
 import { green } from '@material-ui/core/colors';
 
 
-const LowPointActions = ({actions, toggleVisible, addActionToUser}) => {
+const LowPointActions = ({actions, toggleVisible, addActionToUser, addRewardToPoints}) => {
     
      const getLPActions = () => {
         return actions.filter(action => action.reward < 45).map(action => {
-            return <ActionCard action={action} key={action.id} addActionToUser={addActionToUser}/>
+            return <ActionCard 
+                        action={action} 
+                        key={action.id} 
+                        addActionToUser={addActionToUser}
+                        addRewardToPoints={addRewardToPoints}
+                        />
             })
         }
     

@@ -42,10 +42,8 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         position: 'absolute',
-        // width: 400,
         backgroundColor: "#393E41",
         color: '#FF8A78',
-        // border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
         fontFamily: 'Manuale, serif', 
@@ -53,11 +51,13 @@ const useStyles = makeStyles(theme => ({
       }
   }));
 
-const ActionCard = ({action, addActionToUser}) => {
+const ActionCard = ({action, addActionToUser, addRewardToPoints}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
+
+
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget);
@@ -72,7 +72,9 @@ const ActionCard = ({action, addActionToUser}) => {
       };
 
     const doneButtonClick = (event) => {
+        // event.preventDefault()
         setOpen(true)
+        // addRewardToPoints(action.reward)
         addActionToUser(action.id)
     }
 
@@ -128,4 +130,4 @@ const ActionCard = ({action, addActionToUser}) => {
 
 }
 
-export default ActionCard
+export default React.memo(ActionCard)
