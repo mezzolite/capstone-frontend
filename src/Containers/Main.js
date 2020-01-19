@@ -132,7 +132,7 @@ class Main extends Component {
   }
 
   getLoggedInUserPoints = () => {
-    if(this.loggedInUser && this.loggedInUser.actions.length > 0){
+    if(this.state.loggedInUser && this.state.loggedInUser.actions.length > 0){
       const allRewards = this.state.loggedInUser.actions.map(action => action.reward)
       this.setState({loggedInUserPoints: allRewards.reduce((total, reward)=> total + reward)})
     }
