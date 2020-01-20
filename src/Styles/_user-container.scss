@@ -21,10 +21,38 @@
             display: flex;
             flex-direction: column;
             background-color: $russian-green;
-            margin-left: 10%;
-            margin-right: 10%;
+            width: fit-content;
             border-radius: 10px;
+            color: $moccasin;
+            font-size: 20px;
+            text-align: left;
+            align-self: center;
+            padding: 2%;
+            margin-bottom: 3%;
         }
+       
+        .user-container li{
+            display: block;
+            padding: 9px;
+            border:1px solid $moccasin;
+            margin-bottom: 30px;
+            border-radius: 3px;
+            list-style: none;
+        }
+
+        .user-container li > label{
+            display: block;
+            float: left;
+            margin-top: -19px;
+            background: $russian-green;
+            height: 14px;
+            padding: 2px 5px 2px 5px;
+            color: $moccasin;
+            font-size: 14px;
+            overflow: hidden;
+            font-family: $user-font;
+        }
+
 
         .progress-bar-container {
             display: flex;
@@ -35,6 +63,7 @@
 
         .progress-bar {
             align-self: center;
+            margin: 1%;
         }
 
         .user-container > button {
@@ -51,18 +80,116 @@
             border: none;
             transition: all 0.4s ease 0s;
             width: 250px;
-            box-shadow: 5px 5px 5px $russian-green; 
+            box-shadow: 5px 5px 5px $black-olive; 
             text-shadow: 1px 1px 2px $russian-green;
             align-self: center;
-            margin-bottom: 2%;
+            margin-bottom: 5%;
             outline-style: none;
         }
+
+        .completed-action {
+            color: $tea-green;
+        }
+
 
     }
 
 @media only screen 
 and (min-device-width: 320px)
 and (max-device-width: 900px){
+    .progress-bar {
+        // position: inherit;
+        height: 15px;
+        width: 300px;
+        border-radius: 50px;
+        border: 1px solid #333;
+        background-color: $black-olive;
+      }
+      
+    .filler {
+        background: $tea-rose;
+        height: 100%;
+        border-radius: inherit;
+        transition: width .2s ease-in;
+    }
 
+    .user-container {
+        font-family: $user-font;
+        display: flex;
+        flex-direction: column;
+        background-color: $russian-green;
+        width: fit-content;
+        border-radius: 10px;
+        color: $moccasin;
+        font-size: 15px;
+        text-align: left;
+        align-self: center;
+        padding: 3%;
+        margin-bottom: 5%;
+    }
+   
+    .user-container li{
+        display: block;
+        padding: 9px;
+        border:1px solid $moccasin;
+        margin-bottom: 30px;
+        border-radius: 3px;
+        list-style: none;
+    }
+
+    .user-container li > label{
+        display: block;
+        float: left;
+        margin-top: -19px;
+        background: $russian-green;
+        height: 14px;
+        padding: 2px 5px 2px 5px;
+        color: $moccasin;
+        font-size: 14px;
+        overflow: hidden;
+        font-family: $user-font;
+    }
+
+
+    .progress-bar-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 2%;
+    }
+
+    .progress-bar {
+        align-self: center;
+        margin: 1%;
+    }
+
+    .user-container > button {
+        font-family: $action-font;
+        font-size: 15px;
+        font-weight: bolder;
+        color: $moccasin !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: $tea-rose;
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        border: none;
+        transition: all 0.4s ease 0s;
+        width: 250px;
+        box-shadow: 5px 5px 5px $black-olive; 
+        text-shadow: 1px 1px 2px $russian-green;
+        align-self: center;
+        margin-bottom: 5%;
+        outline-style: none;
+    }
+
+    .completed-action {
+        color: $tea-green;
+    }
+
+    .completed-actions-container {
+        margin-top: 2%;
+    }
 }
 

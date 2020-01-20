@@ -43,28 +43,39 @@ class UserContainer extends Component {
 
     render(){
 
-
-
         return(
             <div className="user-container">
                 {this.props.user
-                    ? <><h2>Account Name: {this.props.user.username}</h2>
-                        <h3>Total XP: {this.props.userPoints}</h3>
-                        <h3>Current Level: {this.state.userLevel} </h3>
-                        <div className="progress-bar-container">
-                            Progress to Next Level
+                    ? <>
+                        <li>
+                            <label>Account Name</label>
+                            <p>{this.props.user.username}</p>
+                        </li>
+                        <li>
+                            <label>Total XP</label>
+                            <p>{this.props.userPoints}</p>
+                        </li>
+                        <li>
+                            <label>Level</label>
+                            <p>{this.state.userLevel}</p>
+                        </li>
+                        <li className="progress-bar-container">
+                            <label>Progress to Next Level</label>
                             <ProgressBar percentage={this.state.percentage} />
-                        </div>
+                        </li>
                         <button onClick={this.handleClick}>
                             {!this.state.showActions 
                             ? 'Show Completed Actions'
                             : 'Hide Completed Actions'
                             }
                         </button>
-                        {this.state.showActions === true
-                            ? (this.showCompletedActions())
-                            : null
-                        }
+                        <div className="completed-actions-container">
+                            {this.state.showActions === true
+                                ? (this.showCompletedActions())
+                                : null
+                            }
+                        </div>
+                        
 
                     </>
                     : null

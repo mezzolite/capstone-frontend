@@ -1,6 +1,10 @@
 .home-page {
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    background-color: $tea-green;
 }
 
 .home-page > h3 {

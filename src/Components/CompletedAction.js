@@ -8,10 +8,11 @@ const CompletedAction = ({action}) => {
     }
     
     return(
-        <div className="completed-action">
-            <h3>{action.title}</h3>
-            <p>Date Completed: {getDate()}</p>
-        </div>
+        <li className="completed-action">
+            <label>Date Completed: {getDate()}</label>
+            <p>{action.title}</p>
+            
+        </li>
     )
 }
 export default CompletedAction

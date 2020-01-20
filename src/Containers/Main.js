@@ -120,7 +120,17 @@ class Main extends Component {
     localStorage.removeItem('token')
     localStorage.removeItem('username')
 
-    this.setState({ loggedIn: false})
+    this.setState({ 
+      loggedIn: false,
+      avatars: [],
+      users: [],
+      actions: [],
+      loggedInUser: null,
+      loggedInAvatar: null,
+      mainAvatar: null,
+      loggedInUserPoints: 0})
+
+    this.componentDidMount()
   }
 
   getMainAvatar = () => {
