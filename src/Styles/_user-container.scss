@@ -1,0 +1,68 @@
+@media 
+    (min-device-width: 901px){
+        .progress-bar {
+            // position: inherit;
+            height: 20px;
+            width: 350px;
+            border-radius: 50px;
+            border: 1px solid #333;
+            background-color: $black-olive;
+          }
+          
+        .filler {
+            background: $tea-rose;
+            height: 100%;
+            border-radius: inherit;
+            transition: width .2s ease-in;
+        }
+
+        .user-container {
+            font-family: $user-font;
+            display: flex;
+            flex-direction: column;
+            background-color: $russian-green;
+            margin-left: 10%;
+            margin-right: 10%;
+            border-radius: 10px;
+        }
+
+        .progress-bar-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 2%;
+        }
+
+        .progress-bar {
+            align-self: center;
+        }
+
+        .user-container > button {
+            font-family: $action-font;
+            font-size: 15px;
+            font-weight: bolder;
+            color: $moccasin !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: $tea-rose;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            transition: all 0.4s ease 0s;
+            width: 250px;
+            box-shadow: 5px 5px 5px $russian-green; 
+            text-shadow: 1px 1px 2px $russian-green;
+            align-self: center;
+            margin-bottom: 2%;
+            outline-style: none;
+        }
+
+    }
+
+@media only screen 
+and (min-device-width: 320px)
+and (max-device-width: 900px){
+
+}
+

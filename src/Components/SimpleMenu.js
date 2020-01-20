@@ -14,10 +14,19 @@ const useStyles = makeStyles(theme => ({
   },
   iconStyle: {
     color: '#73956F'
+  },
+  menuItemStyle: {
+    backgroundColor: '#F9EBE0',
+    fontFamily: 'Manuale, serif',
+    fontSize: 18
+  },
+  menu: {
+    backgroundColor: '#F9EBE0'
   }
+
 }));
 
-export default function SimpleMenu({logOut}) {
+export default function SimpleMenu({logOut, toggleAccount}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const classes = useStyles();
 
@@ -33,8 +42,8 @@ export default function SimpleMenu({logOut}) {
   };
 
   const handleMyAccount = () => {
+    toggleAccount()
     setAnchorEl(null);
-
   }
 
   const handleClose = () =>{
@@ -57,8 +66,8 @@ export default function SimpleMenu({logOut}) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleMyAccount}>My account</MenuItem>
-        <MenuItem onClick={handleLogOut}>Logout</MenuItem>
+        <MenuItem className={classes.menuItemStyle} onClick={handleMyAccount}>My account</MenuItem>
+        <MenuItem className={classes.menuItemStyle} onClick={handleLogOut}>Logout</MenuItem>
       </Menu>
     </div>
   );

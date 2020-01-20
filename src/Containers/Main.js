@@ -172,6 +172,8 @@ class Main extends Component {
                                 addActionToUser={this.addActionToUser}
                                 loggedIn={this.state.loggedIn}
                                 addRewardToPoints={this.addRewardToPoints}
+                                loggedInUser={this.state.loggedInUser}
+                                userPoints={this.state.loggedInUserPoints}
                                 />}
             />
             <Route exact path="/">

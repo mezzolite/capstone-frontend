@@ -74,7 +74,7 @@ const ActionCard = ({action, addActionToUser, addRewardToPoints}) => {
     const doneButtonClick = (event) => {
         // event.preventDefault()
         setOpen(true)
-        // addRewardToPoints(action.reward)
+        addRewardToPoints(action.reward)
         addActionToUser(action.id)
     }
 
@@ -85,7 +85,7 @@ const ActionCard = ({action, addActionToUser, addRewardToPoints}) => {
         <div className="action-card" >
             <li aria-describedby={id} onClick={handleClick}>
                 {action.title}
-                <p>Reward: {action.reward} points</p>
+                <p>Reward: {action.reward} XP</p>
             </li>
             <button onClick={doneButtonClick}>
                    Click to collect reward when done: <DoneOutlineRoundedIcon className={classes.doneStyle}/>
