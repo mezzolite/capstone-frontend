@@ -117,9 +117,9 @@ const ActionCard = ({action, addActionToUser, addRewardToPoints, getUserInfo}) =
                 onClose={handleModalClose}
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <p className="reward-description">You've completed action:
+                    <div className="reward-description">You've completed action:
                         <p className="inner-reward-action">{action.title}</p>
-                    </p>
+                    </div>
                     <p className="reward-description">Your reward of {action.reward} XP has been added to your account!</p>
                 </div>
             </Modal>

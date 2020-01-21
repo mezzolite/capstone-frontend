@@ -22,11 +22,11 @@ const LogInForm = ({history, logInUser, loggedIn}) => {
       <h2>Log In</h2>
       <ul>
         <li>
-          <label for="username">Username</label>
+          <label htmlFor="username">Username</label>
           <input type="text" name="username"/>
         </li>
         <li>
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input type="password" name="password"/>
         </li>
         <li className="submit-button">

@@ -119,7 +119,6 @@ class Main extends Component {
       this.setState({
         loggedInAvatar: avatar
       })
-      // this.getLoggedInUserPoints()
     }
   }
 
@@ -148,16 +147,13 @@ class Main extends Component {
     this.setState({loggedIn: true})
   }
 
-  // getLoggedInUserPoints = () => {
-  //   if(this.state.loggedInUser && this.state.loggedInUser.actions.length > 0){
-  //     const allRewards = this.state.loggedInUser.actions.map(action => action.reward)
-  //     this.setState({loggedInUserPoints: allRewards.reduce((total, reward)=> total + reward)})
-  //   }
-  // }
+  deleteUser = (userId) => {
+    this.logOut()
 
-  // addRewardToPoints = (reward) => {
-  //   this.setState({loggedInUserPoints: this.state.loggedInUserPoints + reward})
-  // }
+    fetch(`${userURL}/${userId}`, {
+      method: 'DELETE'
+    })
+  }
 
   render(){
 
@@ -192,6 +188,7 @@ class Main extends Component {
                                 loggedInUser={this.state.loggedInUser}
                                 userPoints={this.state.loggedInUserPoints}
                                 getUserPoints={this.getLoggedInUserPoints}
+                                deleteUser={this.deleteUser}
                                 />}
             />
             <Route exact path="/">

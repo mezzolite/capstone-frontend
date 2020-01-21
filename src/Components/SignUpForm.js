@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AvatarContainer from './AvatarContainer'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 class SignUpForm extends Component{
 
@@ -33,7 +33,7 @@ class SignUpForm extends Component{
                 <h1>SIGN UP</h1>
                 <ul>
                     <li>
-                        <label for="username">Username</label>
+                        <label htmlFor="username">Username</label>
                         <input 
                             type="text" 
                             name="username"
@@ -45,7 +45,7 @@ class SignUpForm extends Component{
                     </li>
                 
                     <li>
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <input 
                             type="password" 
                             name="password" 
@@ -56,7 +56,7 @@ class SignUpForm extends Component{
                         />
                     </li>
                     <li>
-                        <label for="zipcode">Zipcode</label>
+                        <label htmlFor="zipcode">Zipcode</label>
                         <input 
                             type="number" 
                             name="zipcode" 
@@ -67,12 +67,15 @@ class SignUpForm extends Component{
                         />
                     </li>
                     <li className="avatar-selection" id="avatar-selection">
-                        <label for='avatar-selection'>Pick an Avatar</label>
+                        <label htmlFor='avatar-selection'>Pick an Avatar</label>
                         <AvatarContainer avatars={this.props.avatars} setAvatar={this.setAvatar}/>
                     </li>
-                    <li>
+                    <div className="submit-button">
                         <input type="submit" name="submit" value="Sign Up" />
-                    </li>
+                    </div>
+                    <div className="log-in-link">
+                        <Link className="log-in-link" to="/login">Already have an account? Log In </Link>
+                    </div>
                 </ul>
             </form>
         )

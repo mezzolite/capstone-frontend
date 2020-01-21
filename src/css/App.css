@@ -183,10 +183,11 @@ table {
   margin-bottom: 30px;
   border-radius: 3px; }
 
-.sign-up-form li:last-child {
+.submit-button {
   border: none;
   margin-bottom: 0px;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 5%; }
 
 .sign-up-form li > label {
   display: block;
@@ -244,6 +245,11 @@ table {
   color: #73956F;
   margin-bottom: 20px;
   margin-left: 35%; }
+
+.log-in-link {
+  text-decoration: none;
+  color: #FF8A78;
+  text-align: center; }
 
 .login-form {
   background-color: #F9EBE0;
@@ -593,7 +599,27 @@ table {
     border-style: unset;
     margin-bottom: 5%;
     float: right;
-    width: 10px; } }
+    width: 10px; }
+
+  .delete-user-button {
+    font-family: "Zilla Slab", serif;
+    font-size: 15px;
+    font-weight: bolder;
+    color: #F9EBE0 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #FF8A78;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    width: 250px;
+    box-shadow: 5px 5px 5px #393E41;
+    text-shadow: 1px 1px 2px #73956F;
+    align-self: center;
+    margin-bottom: 5%;
+    outline-style: none; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
   .progress-bar {
     height: 15px;
@@ -684,7 +710,27 @@ table {
     border-style: unset;
     margin-bottom: 5%;
     float: right;
-    width: 10px; } }
+    width: 10px; }
+
+  .delete-user-button {
+    font-family: "Zilla Slab", serif;
+    font-size: 15px;
+    font-weight: bolder;
+    color: #F9EBE0 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #FF8A78;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    width: 250px;
+    box-shadow: 5px 5px 5px #393E41;
+    text-shadow: 1px 1px 2px #73956F;
+    align-self: center;
+    margin-bottom: 5%;
+    outline-style: none; } }
 body, .App, .start-page, .main {
   height: 100vh; }
 

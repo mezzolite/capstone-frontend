@@ -99,6 +99,27 @@
             width: 10px;
         }
 
+        .delete-user-button {
+            font-family: $action-font;
+            font-size: 15px;
+            font-weight: bolder;
+            color: $moccasin !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: $tea-rose;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            transition: all 0.4s ease 0s;
+            width: 250px;
+            box-shadow: 5px 5px 5px $black-olive; 
+            text-shadow: 1px 1px 2px $russian-green;
+            align-self: center;
+            margin-bottom: 5%;
+            outline-style: none;
+        }
+
 
     }
 
@@ -207,6 +228,27 @@ and (max-device-width: 900px){
         margin-bottom: 5%;
         float: right;
         width: 10px;
+    }
+
+    .delete-user-button {
+        font-family: $action-font;
+        font-size: 15px;
+        font-weight: bolder;
+        color: $moccasin !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: $tea-rose;
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        border: none;
+        transition: all 0.4s ease 0s;
+        width: 250px;
+        box-shadow: 5px 5px 5px $black-olive; 
+        text-shadow: 1px 1px 2px $russian-green;
+        align-self: center;
+        margin-bottom: 5%;
+        outline-style: none;
     }
 }
 

@@ -39,10 +39,11 @@
 	margin-bottom: 30px;
 	border-radius: 3px;
 }
-.sign-up-form li:last-child{
+.submit-button{
 	border:none;
 	margin-bottom: 0px;
 	text-align: center;
+	margin-bottom: 5%;
 }
 .sign-up-form li > label{
 	display: block;
@@ -104,4 +105,10 @@
     color: $russian-green;
     margin-bottom: 20px;
     margin-left: 35%;
+}
+
+.log-in-link {
+    text-decoration: none;
+	color: $tea-rose;
+	text-align: center;
 }

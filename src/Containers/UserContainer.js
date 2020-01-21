@@ -38,6 +38,10 @@ class UserContainer extends Component {
        this.props.getUserInfo()
     }
 
+    handleDeleteUser = () => {
+        this.props.deleteUser(this.props.user.id)
+    }
+
 
     render(){
 
@@ -76,6 +80,9 @@ class UserContainer extends Component {
                                 : null
                             }
                         </div>
+                        <button className="delete-user-button" onClick={this.handleDeleteUser}>
+                            Delete Account
+                        </button>
                         
 
                     </>

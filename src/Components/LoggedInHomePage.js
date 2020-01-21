@@ -37,6 +37,7 @@ class LoggedInHomePage extends React.Component {
 
     addRewardToPoints = (reward) => {
         this.setState({loggedInUserPoints: this.state.loggedInUserPoints + reward})
+        // this.getUserInfo()
     }
 
     getUserInfo = () => {
@@ -71,6 +72,7 @@ class LoggedInHomePage extends React.Component {
                             getUserInfo={this.getUserInfo}
                             percentage={this.state.percentage}
                             userLevel={this.state.userLevel}
+                            deleteUser={this.props.deleteUser}
                             />
                         : null
                     }
