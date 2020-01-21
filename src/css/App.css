@@ -480,7 +480,8 @@ table {
     background-color: unset;
     border: unset;
     color: #939597;
-    cursor: pointer; }
+    cursor: pointer;
+    outline-style: none; }
 
   .description {
     padding-bottom: 1%;

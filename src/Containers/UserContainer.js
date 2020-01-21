@@ -29,7 +29,9 @@ class UserContainer extends Component {
 
     
     componentDidMount(){
-        if(this.props.userPoints <= 100){
+        // this.props.getUserPoints()
+        console.log("user container", this.props)
+        if(this.props.userPoints && this.props.userPoints <= 100){
             this.setState({
                 percentage: this.props.userPoints 
             })

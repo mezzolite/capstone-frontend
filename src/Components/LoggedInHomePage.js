@@ -7,20 +7,32 @@ import ActionContainer from '../Containers/ActionContainer'
 class LoggedInHomePage extends React.Component {
 
     state = {
-        showAccount: false
+        showAccount: false, 
+        loggedInUserPoints: 0
     }
     
     
 
     toggleAccount = () => {
-        console.log('is this working')
         this.setState({
             showAccount: true
         })
     }
 
+
+    getLoggedInUserPoints = () => {
+        console.log("is this working")
+        if(this.props.loggedInUser && this.props.loggedInUser.actions.length > 0){
+          const allRewards = this.props.loggedInUser.actions.map(action => action.reward)
+          this.setState({loggedInUserPoints: allRewards.reduce((total, reward)=> total + reward)})
+        }
+      }
+
+    addRewardToPoints = (reward) => {
+        this.setState({loggedInUserPoints: this.state.loggedInUserPoints + reward})
+    }
+
    render(){
-        console.log(this.state.showAccount)
        return(
            <div className="home-page">
                <Header 
@@ -28,17 +40,21 @@ class LoggedInHomePage extends React.Component {
                     loggedIn={this.props.loggedIn} 
                     logOut={this.props.logOut} 
                     toggleAccount={this.toggleAccount}
+                    getLoggedInUserPoints={this.getLoggedInUserPoints}
                     />
                <h3>In the game of democracy, you participate, or you lose.</h3>
                <div className="user-action-container">
                     {this.state.showAccount === true
-                        ? <UserContainer user={this.props.loggedInUser} userPoints={this.props.userPoints} />
+                        ? <UserContainer 
+                            user={this.props.loggedInUser} 
+                            userPoints={this.state.loggedInUserPoints} 
+                            />
                         : null
                     }
                     <ActionContainer 
                         actions={this.props.actions} 
                         addActionToUser={this.props.addActionToUser} 
-                        addRewardToPoints={this.props.addRewardToPoints} 
+                        addRewardToPoints={this.addRewardToPoints} 
                         userPoints={this.props.userPoints}
                         />
                </div>
