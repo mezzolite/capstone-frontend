@@ -47,8 +47,6 @@ class Main extends Component {
  }
 
  shouldComponentUpdate(nextProps, nextState) {
-  console.log("current", this.state.loggedInUserPoints)
-  console.log("next state", nextState.loggedInUserPoints)
   if (this.state.loggedInUserPoints !== nextState.loggedInUserPoints) {
     return false;
   }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CompletedAction from '../Components/CompletedAction'
 import ProgressBar from '../Components/ProgressBar'
+import HighlightOffTwoToneIcon from '@material-ui/icons/HighlightOffTwoTone';
+import { green } from '@material-ui/core/colors';
 
 
 class UserContainer extends Component {
@@ -27,10 +29,12 @@ class UserContainer extends Component {
         }
     }
 
+    closeUserContainer = () => {
+        this.props.toggleAccount()
+    }
+
     
     componentDidMount(){
-        // this.props.getUserPoints()
-        console.log("user container", this.props)
         if(this.props.userPoints && this.props.userPoints <= 100){
             this.setState({
                 percentage: this.props.userPoints 
@@ -49,6 +53,9 @@ class UserContainer extends Component {
             <div className="user-container">
                 {this.props.user
                     ? <>
+                        <button className="close-user-container-button" onClick={this.closeUserContainer}>
+                            {<HighlightOffTwoToneIcon style={{ color: green[400] }}  />}
+                        </button>
                         <li>
                             <label>Account Name</label>
                             <p>{this.props.user.username}</p>
@@ -65,7 +72,7 @@ class UserContainer extends Component {
                             <label>Progress to Next Level</label>
                             <ProgressBar percentage={this.state.percentage} />
                         </li>
-                        <button onClick={this.handleClick}>
+                        <button className="completed-actions-button" onClick={this.handleClick}>
                             {!this.state.showActions 
                             ? 'Show Completed Actions'
                             : 'Hide Completed Actions'

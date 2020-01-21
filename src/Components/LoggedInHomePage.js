@@ -14,14 +14,19 @@ class LoggedInHomePage extends React.Component {
     
 
     toggleAccount = () => {
-        this.setState({
-            showAccount: true
-        })
+        if(this.state.showAccount){
+            this.setState({
+                showAccount: false
+            })
+        } else {
+            this.setState({
+                showAccount: true
+            })
+        }
     }
 
 
     getLoggedInUserPoints = () => {
-        console.log("is this working")
         if(this.props.loggedInUser && this.props.loggedInUser.actions.length > 0){
           const allRewards = this.props.loggedInUser.actions.map(action => action.reward)
           this.setState({loggedInUserPoints: allRewards.reduce((total, reward)=> total + reward)})
@@ -48,6 +53,7 @@ class LoggedInHomePage extends React.Component {
                         ? <UserContainer 
                             user={this.props.loggedInUser} 
                             userPoints={this.state.loggedInUserPoints} 
+                            toggleAccount={this.toggleAccount}
                             />
                         : null
                     }

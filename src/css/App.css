@@ -357,7 +357,8 @@ table {
   color: #73956F;
   text-shadow: 1px 1px 2px #F9EBE0;
   font-size: 30px;
-  margin: 2%; }
+  margin: 2%;
+  margin-bottom: 5%; }
 
 @media (min-device-width: 901px) {
   .user-action-container {
@@ -441,7 +442,9 @@ table {
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
-    margin: 8%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom: 8%;
     box-shadow: 5px 5px 5px #73956F;
     text-shadow: 1px 1px 2px #73956F;
     cursor: pointer;
@@ -458,8 +461,8 @@ table {
 
   .action-card {
     background-color: #393E41;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-bottom: 2%;
     list-style-type: none;
     border-radius: 10px;
@@ -490,7 +493,7 @@ table {
     padding-right: 30%; }
 
   .partial-action-container {
-    flex-basis: 50vh; }
+    flex-basis: 80vh; }
 
   .partial-action-container > button {
     background-color: unset;
@@ -562,7 +565,7 @@ table {
     align-self: center;
     margin: 1%; }
 
-  .user-container > button {
+  .completed-actions-button {
     font-family: "Zilla Slab", serif;
     font-size: 15px;
     font-weight: bolder;
@@ -583,7 +586,14 @@ table {
     outline-style: none; }
 
   .completed-action {
-    color: #BEF9C2; } }
+    color: #BEF9C2; }
+
+  .close-user-container-button {
+    background-color: unset;
+    border-style: unset;
+    margin-bottom: 5%;
+    float: right;
+    width: 10px; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
   .progress-bar {
     height: 15px;
@@ -643,7 +653,7 @@ table {
     align-self: center;
     margin: 1%; }
 
-  .user-container > button {
+  .completed-actions-button {
     font-family: "Zilla Slab", serif;
     font-size: 15px;
     font-weight: bolder;
@@ -667,7 +677,14 @@ table {
     color: #BEF9C2; }
 
   .completed-actions-container {
-    margin-top: 2%; } }
+    margin-top: 2%; }
+
+  .close-user-container-button {
+    background-color: unset;
+    border-style: unset;
+    margin-bottom: 5%;
+    float: right;
+    width: 10px; } }
 body, .App, .start-page, .main {
   height: 100vh; }
 

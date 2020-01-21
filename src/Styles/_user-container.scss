@@ -66,7 +66,7 @@
             margin: 1%;
         }
 
-        .user-container > button {
+        .completed-actions-button {
             font-family: $action-font;
             font-size: 15px;
             font-weight: bolder;
@@ -89,6 +89,14 @@
 
         .completed-action {
             color: $tea-green;
+        }
+
+        .close-user-container-button {
+            background-color: unset;
+            border-style: unset;
+            margin-bottom: 5%;
+            float: right;
+            width: 10px;
         }
 
 
@@ -164,7 +172,7 @@ and (max-device-width: 900px){
         margin: 1%;
     }
 
-    .user-container > button {
+    .completed-actions-button {
         font-family: $action-font;
         font-size: 15px;
         font-weight: bolder;
@@ -191,6 +199,14 @@ and (max-device-width: 900px){
 
     .completed-actions-container {
         margin-top: 2%;
+    }
+
+    .close-user-container-button {
+        background-color: unset;
+        border-style: unset;
+        margin-bottom: 5%;
+        float: right;
+        width: 10px;
     }
 }
 
