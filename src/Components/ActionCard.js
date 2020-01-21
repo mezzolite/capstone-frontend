@@ -71,8 +71,7 @@ const ActionCard = ({action, addActionToUser, addRewardToPoints}) => {
         setOpen(false);
       };
 
-    const doneButtonClick = (event) => {
-        // event.preventDefault()
+    const doneButtonClick = () => {
         setOpen(true)
         addRewardToPoints(action.reward)
         addActionToUser(action.id)
@@ -120,7 +119,7 @@ const ActionCard = ({action, addActionToUser, addRewardToPoints}) => {
                     <p className="reward-description">You've completed action:
                         <p className="inner-reward-action">{action.title}</p>
                     </p>
-                    <p className="reward-description">Your reward of {action.reward} points has been added to your account!</p>
+                    <p className="reward-description">Your reward of {action.reward} XP has been added to your account!</p>
                 </div>
             </Modal>
         

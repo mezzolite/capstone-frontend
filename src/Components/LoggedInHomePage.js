@@ -7,15 +7,10 @@ import ActionContainer from '../Containers/ActionContainer'
 class LoggedInHomePage extends React.Component {
 
     state = {
-        showAccount: true
+        showAccount: false
     }
     
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.props.actions !== nextProps.actions) {
-          return true;
-        }
-        return false;
-      }
+    
 
     toggleAccount = () => {
         console.log('is this working')
@@ -25,7 +20,7 @@ class LoggedInHomePage extends React.Component {
     }
 
    render(){
-
+        console.log(this.state.showAccount)
        return(
            <div className="home-page">
                <Header 
@@ -35,14 +30,18 @@ class LoggedInHomePage extends React.Component {
                     toggleAccount={this.toggleAccount}
                     />
                <h3>In the game of democracy, you participate, or you lose.</h3>
-                {this.state.showAccount === true
-                    ? <UserContainer user={this.props.loggedInUser} userPoints={this.props.userPoints} />
-                    : null
-                }
-               <ActionContainer 
-                    actions={this.props.actions} 
-                    addActionToUser={this.props.addActionToUser} 
-                    addRewardToPoints={this.props.addRewardToPoints} />
+               <div className="user-action-container">
+                    {this.state.showAccount === true
+                        ? <UserContainer user={this.props.loggedInUser} userPoints={this.props.userPoints} />
+                        : null
+                    }
+                    <ActionContainer 
+                        actions={this.props.actions} 
+                        addActionToUser={this.props.addActionToUser} 
+                        addRewardToPoints={this.props.addRewardToPoints} 
+                        userPoints={this.props.userPoints}
+                        />
+               </div>
            </div>
        )
    }

@@ -46,6 +46,15 @@ class Main extends Component {
     })
  }
 
+ shouldComponentUpdate(nextProps, nextState) {
+  console.log(this.state.loggedInUserPoints)
+  console.log(nextState.loggedInUserPoints)
+  if (this.state.loggedInUserPoints !== nextState.loggedInUserPoints) {
+    return false;
+  }
+  return true;
+}
+
   addUser = (user) => {
     this.setState({users: [...this.state.users, user]})
 
