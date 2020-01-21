@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-export default function SimpleMenu({logOut, toggleAccount}) {
+export default function SimpleMenu({logOut, toggleAccount, getLoggedInUserPoints}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const classes = useStyles();
 
@@ -43,6 +43,7 @@ export default function SimpleMenu({logOut, toggleAccount}) {
 
   const handleMyAccount = () => {
     toggleAccount()
+    getLoggedInUserPoints()
     setAnchorEl(null);
   }
 

@@ -7,25 +7,32 @@ import ActionContainer from '../Containers/ActionContainer'
 class LoggedInHomePage extends React.Component {
 
     state = {
-        showAccount: true
+        showAccount: false, 
+        loggedInUserPoints: 0
     }
     
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.props.actions !== nextProps.actions) {
-          return true;
-        }
-        return false;
-      }
+    
 
     toggleAccount = () => {
-        console.log('is this working')
         this.setState({
             showAccount: true
         })
     }
 
-   render(){
 
+    getLoggedInUserPoints = () => {
+        console.log("is this working")
+        if(this.props.loggedInUser && this.props.loggedInUser.actions.length > 0){
+          const allRewards = this.props.loggedInUser.actions.map(action => action.reward)
+          this.setState({loggedInUserPoints: allRewards.reduce((total, reward)=> total + reward)})
+        }
+      }
+
+    addRewardToPoints = (reward) => {
+        this.setState({loggedInUserPoints: this.state.loggedInUserPoints + reward})
+    }
+
+   render(){
        return(
            <div className="home-page">
                <Header 
@@ -33,16 +40,24 @@ class LoggedInHomePage extends React.Component {
                     loggedIn={this.props.loggedIn} 
                     logOut={this.props.logOut} 
                     toggleAccount={this.toggleAccount}
+                    getLoggedInUserPoints={this.getLoggedInUserPoints}
                     />
                <h3>In the game of democracy, you participate, or you lose.</h3>
-                {this.state.showAccount === true
-                    ? <UserContainer user={this.props.loggedInUser} userPoints={this.props.userPoints} />
-                    : null
-                }
-               <ActionContainer 
-                    actions={this.props.actions} 
-                    addActionToUser={this.props.addActionToUser} 
-                    addRewardToPoints={this.props.addRewardToPoints} />
+               <div className="user-action-container">
+                    {this.state.showAccount === true
+                        ? <UserContainer 
+                            user={this.props.loggedInUser} 
+                            userPoints={this.state.loggedInUserPoints} 
+                            />
+                        : null
+                    }
+                    <ActionContainer 
+                        actions={this.props.actions} 
+                        addActionToUser={this.props.addActionToUser} 
+                        addRewardToPoints={this.addRewardToPoints} 
+                        userPoints={this.props.userPoints}
+                        />
+               </div>
            </div>
        )
    }

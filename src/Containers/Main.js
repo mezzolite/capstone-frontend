@@ -46,6 +46,15 @@ class Main extends Component {
     })
  }
 
+ shouldComponentUpdate(nextProps, nextState) {
+  console.log("current", this.state.loggedInUserPoints)
+  console.log("next state", nextState.loggedInUserPoints)
+  if (this.state.loggedInUserPoints !== nextState.loggedInUserPoints) {
+    return false;
+  }
+  return true;
+}
+
   addUser = (user) => {
     this.setState({users: [...this.state.users, user]})
 
@@ -112,7 +121,7 @@ class Main extends Component {
       this.setState({
         loggedInAvatar: avatar
       })
-      this.getLoggedInUserPoints()
+      // this.getLoggedInUserPoints()
     }
   }
 
@@ -141,16 +150,16 @@ class Main extends Component {
     this.setState({loggedIn: true})
   }
 
-  getLoggedInUserPoints = () => {
-    if(this.state.loggedInUser && this.state.loggedInUser.actions.length > 0){
-      const allRewards = this.state.loggedInUser.actions.map(action => action.reward)
-      this.setState({loggedInUserPoints: allRewards.reduce((total, reward)=> total + reward)})
-    }
-  }
+  // getLoggedInUserPoints = () => {
+  //   if(this.state.loggedInUser && this.state.loggedInUser.actions.length > 0){
+  //     const allRewards = this.state.loggedInUser.actions.map(action => action.reward)
+  //     this.setState({loggedInUserPoints: allRewards.reduce((total, reward)=> total + reward)})
+  //   }
+  // }
 
-  addRewardToPoints = (reward) => {
-    this.setState({loggedInUserPoints: this.state.loggedInUserPoints + reward})
-  }
+  // addRewardToPoints = (reward) => {
+  //   this.setState({loggedInUserPoints: this.state.loggedInUserPoints + reward})
+  // }
 
   render(){
 
@@ -184,6 +193,7 @@ class Main extends Component {
                                 addRewardToPoints={this.addRewardToPoints}
                                 loggedInUser={this.state.loggedInUser}
                                 userPoints={this.state.loggedInUserPoints}
+                                getUserPoints={this.getLoggedInUserPoints}
                                 />}
             />
             <Route exact path="/">

@@ -1,10 +1,12 @@
-.action-container {
-    background-color: $tea-green;
-}
+
 
 @media only screen 
     and (min-device-width: 320px)
     and (max-device-width: 900px){
+
+        .action-container {
+            background-color: $tea-green;
+        }
        
         .action-container > button {
             font-family: $action-font;
@@ -66,6 +68,13 @@
 
 @media 
     (min-device-width: 901px) {
+
+        .action-container {
+            background-color: $tea-green;
+            display: flex;
+          
+        }
+
         .action-container > button {
             font-family: $action-font;
             font-size: 20px;
@@ -83,6 +92,8 @@
             box-shadow: 5px 5px 5px $russian-green;
             text-shadow: 1px 1px 2px $russian-green;
             cursor: pointer;
+            height: 70px;
+            width: 400px;
         }
 
         .action-container > button:hover { 
@@ -96,8 +107,8 @@
 
         .action-card {
             background-color: $black-olive;
-            margin-left: 30%;
-            margin-right: 30%;
+            margin-left: 10%;
+            margin-right: 10%;
             margin-bottom: 2%;
             list-style-type: none;
             border-radius: 10px;
@@ -124,6 +135,7 @@
             border: unset;
             color: #939597;
             cursor: pointer;
+            outline-style: none;
         }
 
         .description {
@@ -131,6 +143,10 @@
             font-size: 30px;
             padding-left: 30%;
             padding-right: 30%;
+        }
+
+        .partial-action-container {
+            flex-basis: 50vh;
         }
 
         .partial-action-container > button {

@@ -2,7 +2,7 @@ import React from 'react'
 import SimpleMenu from './SimpleMenu'
 import AvatarCard from './AvatarCard'
 
-const Header = ({avatar, loggedIn, logOut, toggleAccount}) => {
+const Header = ({avatar, loggedIn, logOut, toggleAccount, getLoggedInUserPoints}) => {
     return(
         <div className="header">
             <h1>Imp-Politic</h1>
@@ -13,7 +13,11 @@ const Header = ({avatar, loggedIn, logOut, toggleAccount}) => {
                 }
             </div>
             {loggedIn
-                ? <SimpleMenu logOut={logOut} toggleAccount={toggleAccount} />
+                ? <SimpleMenu 
+                    logOut={logOut} 
+                    toggleAccount={toggleAccount}
+                    getLoggedInUserPoints={getLoggedInUserPoints}
+                    />
                 : null
             }
             
