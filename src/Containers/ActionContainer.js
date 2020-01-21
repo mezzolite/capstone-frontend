@@ -37,6 +37,7 @@ class ActionContainer extends Component {
                         toggleVisible={this.toggleLPAState} 
                         addActionToUser={this.props.addActionToUser}
                         addRewardToPoints={this.props.addRewardToPoints}
+                        getUserInfo={this.props.getUserInfo}
                         />
                     : <button onClick={this.toggleLPAState}>Simple Actions</button>
                 }
@@ -46,6 +47,7 @@ class ActionContainer extends Component {
                         toggleVisible={this.toggleHPAState} 
                         addActionToUser={this.props.addActionToUser} 
                         addRewardToPoints={this.props.addRewardToPoints}
+                        getUserInfo={this.props.getUserInfo}
                         />
                     : <button onClick={this.toggleHPAState}>High Point Actions</button>
                 }

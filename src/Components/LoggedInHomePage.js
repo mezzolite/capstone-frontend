@@ -8,7 +8,9 @@ class LoggedInHomePage extends React.Component {
 
     state = {
         showAccount: false, 
-        loggedInUserPoints: 0
+        loggedInUserPoints: 0,
+        percentage: 0, 
+        userLevel: 1
     }
     
     
@@ -37,6 +39,18 @@ class LoggedInHomePage extends React.Component {
         this.setState({loggedInUserPoints: this.state.loggedInUserPoints + reward})
     }
 
+    getUserInfo = () => {
+        if(this.state.loggedInUserPoints && this.state.loggedInUserPoints <= 100){
+            this.setState({
+                percentage: this.state.loggedInUserPoints 
+            })
+        } else {
+            const percentage = this.state.loggedInUserPoints.toString().split('').slice(-2).join('')
+            const userLevel = Math.ceil(this.state.loggedInUserPoints/100)
+            this.setState({percentage, userLevel})
+        }
+    }
+
    render(){
        return(
            <div className="home-page">
@@ -54,6 +68,9 @@ class LoggedInHomePage extends React.Component {
                             user={this.props.loggedInUser} 
                             userPoints={this.state.loggedInUserPoints} 
                             toggleAccount={this.toggleAccount}
+                            getUserInfo={this.getUserInfo}
+                            percentage={this.state.percentage}
+                            userLevel={this.state.userLevel}
                             />
                         : null
                     }
@@ -62,6 +79,8 @@ class LoggedInHomePage extends React.Component {
                         addActionToUser={this.props.addActionToUser} 
                         addRewardToPoints={this.addRewardToPoints} 
                         userPoints={this.props.userPoints}
+                        getUserInfo={this.getUserInfo}
+                        
                         />
                </div>
            </div>

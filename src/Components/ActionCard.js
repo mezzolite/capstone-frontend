@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
       }
   }));
 
-const ActionCard = ({action, addActionToUser, addRewardToPoints}) => {
+const ActionCard = ({action, addActionToUser, addRewardToPoints, getUserInfo}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [modalStyle] = React.useState(getModalStyle);
@@ -75,6 +75,7 @@ const ActionCard = ({action, addActionToUser, addRewardToPoints}) => {
         setOpen(true)
         addRewardToPoints(action.reward)
         addActionToUser(action.id)
+        getUserInfo()
     }
 
     const popoverOpen = Boolean(anchorEl);
