@@ -229,7 +229,8 @@ table {
   border-bottom: 3px solid #BEF9C2;
   border-radius: 3px;
   color: #F9EBE0;
-  cursor: pointer; }
+  cursor: pointer;
+  outline: none; }
 
 .form-style-7 input[type="submit"]:hover {
   background: #FF8A78;
@@ -288,7 +289,8 @@ table {
 .login-form .submit-button {
   border: none;
   margin-bottom: 0px;
-  text-align: center; }
+  text-align: center;
+  outline: none; }
 
 .login-form li > label {
   display: block;

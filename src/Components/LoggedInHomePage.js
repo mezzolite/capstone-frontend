@@ -38,18 +38,23 @@ class LoggedInHomePage extends React.Component {
       }
 
     addRewardToPoints = (reward) => {
-        this.setState({loggedInUserPoints: this.state.loggedInUserPoints + reward})
-        // this.getUserInfo()
+        if(this.state.loggedInUserPoints){
+            const points = this.state.loggedInUserPoints + reward
+            this.setState({loggedInUserPoints: points})
+            this.getUserInfo(points)
+
+        }
     }
 
-    getUserInfo = () => {
+    getUserInfo = (points) => {
         if(this.state.loggedInUserPoints && this.state.loggedInUserPoints <= 100){
             this.setState({
-                percentage: this.state.loggedInUserPoints 
+                percentage: this.state.loggedInUserPoints,
+                userLevel: 1 
             })
         } else {
-            const percentage = this.state.loggedInUserPoints.toString().split('').slice(-2).join('')
-            const userLevel = Math.ceil(this.state.loggedInUserPoints/100)
+            const percentage = points.toString().split('').slice(-2).join('')
+            const userLevel = Math.ceil(points/100)
             this.setState({percentage, userLevel})
         }
     }

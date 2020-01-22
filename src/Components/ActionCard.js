@@ -75,7 +75,7 @@ const ActionCard = ({action, addActionToUser, addRewardToPoints, getUserInfo}) =
         setOpen(true)
         addRewardToPoints(action.reward)
         addActionToUser(action.id)
-        getUserInfo()
+        // getUserInfo()
     }
 
     const popoverOpen = Boolean(anchorEl);
