@@ -8,9 +8,7 @@ import { green } from '@material-ui/core/colors';
 class UserContainer extends Component {
 
     state = {
-        showActions: false,
-        // percentage: 0, 
-        // userLevel: 1
+        showActions: false
     }
 
     showCompletedActions = () => {
@@ -35,7 +33,7 @@ class UserContainer extends Component {
 
     
     componentDidMount(){
-       this.props.getUserInfo()
+       this.props.getUserInfo(this.props.userPoints)
     }
 
     handleDeleteUser = () => {
@@ -61,7 +59,7 @@ class UserContainer extends Component {
                             <p>{this.props.userPoints}</p>
                         </li>
                         <li>
-                            <label>Level</label>
+                            <label>Advocacy Level</label>
                             <p>{this.props.userLevel}</p>
                         </li>
                         <li className="progress-bar-container">

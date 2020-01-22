@@ -55,7 +55,6 @@ class Main extends Component {
 
   addUser = (user) => {
     this.setState({users: [...this.state.users, user]})
-
     fetch(userURL, {
       method: 'POST',
       headers: {
@@ -63,6 +62,12 @@ class Main extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(user)
+    })
+    .then(response => response.json())
+    .then(result => {
+      if(result.error){
+        alert(result.error)
+      }
     })
   }
 
@@ -90,7 +95,6 @@ class Main extends Component {
   }
 
   addActionToUser = (actionID) => {
-
     fetch(userActionsURL, {
       method: 'POST',
       headers: {
@@ -166,6 +170,7 @@ class Main extends Component {
               render={() => <SignUpForm 
                                 avatars={this.state.avatars} 
                                 addUser={this.addUser} 
+                                users={this.state.users}
                             />
                       } 
             />

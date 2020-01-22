@@ -19,8 +19,14 @@ class SignUpForm extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addUser(this.state)
-        this.props.history.push('/login')          
+        const usernameExists = this.props.users.find(user => user.username === this.state.username.toLowerCase())
+        if(usernameExists){
+            alert("Username already exists")
+            event.target.reset()
+        } else {
+            this.props.addUser(this.state)
+            this.props.history.push('/login')          
+        }
     }
 
     setAvatar = (avatar) => {

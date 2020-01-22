@@ -20,6 +20,17 @@ const isLocalhost = Boolean(
     )
 );
 
+// const FILES_TO_CACHE = [
+//   '/offline.html',
+// ];
+
+// evt.waitUntil(
+//   caches.open(CACHE_NAME).then((cache) => {
+//     console.log('[ServiceWorker] Pre-caching offline page');
+//     return cache.addAll(FILES_TO_CACHE);
+//   })
+// );
+
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
