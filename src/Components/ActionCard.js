@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
       }
   }));
 
-const ActionCard = ({action, addActionToUser, addRewardToPoints}) => {
+const ActionCard = ({action, addActionToUser, addRewardToPoints, getUserInfo}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [modalStyle] = React.useState(getModalStyle);
@@ -75,6 +75,7 @@ const ActionCard = ({action, addActionToUser, addRewardToPoints}) => {
         setOpen(true)
         addRewardToPoints(action.reward)
         addActionToUser(action.id)
+        getUserInfo()
     }
 
     const popoverOpen = Boolean(anchorEl);
@@ -116,9 +117,9 @@ const ActionCard = ({action, addActionToUser, addRewardToPoints}) => {
                 onClose={handleModalClose}
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <p className="reward-description">You've completed action:
+                    <div className="reward-description">You've completed action:
                         <p className="inner-reward-action">{action.title}</p>
-                    </p>
+                    </div>
                     <p className="reward-description">Your reward of {action.reward} XP has been added to your account!</p>
                 </div>
             </Modal>

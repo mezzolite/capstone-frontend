@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import CompletedAction from '../Components/CompletedAction'
 import ProgressBar from '../Components/ProgressBar'
+import HighlightOffTwoToneIcon from '@material-ui/icons/HighlightOffTwoTone';
+import { green } from '@material-ui/core/colors';
 
 
 class UserContainer extends Component {
 
     state = {
         showActions: false,
-        percentage: 0, 
-        userLevel: 1
+        // percentage: 0, 
+        // userLevel: 1
     }
 
     showCompletedActions = () => {
@@ -27,19 +29,17 @@ class UserContainer extends Component {
         }
     }
 
+    closeUserContainer = () => {
+        this.props.toggleAccount()
+    }
+
     
     componentDidMount(){
-        // this.props.getUserPoints()
-        console.log("user container", this.props)
-        if(this.props.userPoints && this.props.userPoints <= 100){
-            this.setState({
-                percentage: this.props.userPoints 
-            })
-        } else {
-            const percentage = this.props.userPoints.toString().split('').slice(-2).join('')
-            const userLevel = Math.ceil(this.props.userPoints/100)
-            this.setState({percentage, userLevel})
-        }
+       this.props.getUserInfo()
+    }
+
+    handleDeleteUser = () => {
+        this.props.deleteUser(this.props.user.id)
     }
 
 
@@ -49,6 +49,9 @@ class UserContainer extends Component {
             <div className="user-container">
                 {this.props.user
                     ? <>
+                        <button className="close-user-container-button" onClick={this.closeUserContainer}>
+                            {<HighlightOffTwoToneIcon style={{ color: green[400] }}  />}
+                        </button>
                         <li>
                             <label>Account Name</label>
                             <p>{this.props.user.username}</p>
@@ -59,13 +62,13 @@ class UserContainer extends Component {
                         </li>
                         <li>
                             <label>Level</label>
-                            <p>{this.state.userLevel}</p>
+                            <p>{this.props.userLevel}</p>
                         </li>
                         <li className="progress-bar-container">
                             <label>Progress to Next Level</label>
-                            <ProgressBar percentage={this.state.percentage} />
+                            <ProgressBar percentage={this.props.percentage} />
                         </li>
-                        <button onClick={this.handleClick}>
+                        <button className="completed-actions-button" onClick={this.handleClick}>
                             {!this.state.showActions 
                             ? 'Show Completed Actions'
                             : 'Hide Completed Actions'
@@ -77,6 +80,9 @@ class UserContainer extends Component {
                                 : null
                             }
                         </div>
+                        <button className="delete-user-button" onClick={this.handleDeleteUser}>
+                            Delete Account
+                        </button>
                         
 
                     </>

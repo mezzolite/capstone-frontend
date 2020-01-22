@@ -183,10 +183,11 @@ table {
   margin-bottom: 30px;
   border-radius: 3px; }
 
-.sign-up-form li:last-child {
+.submit-button {
   border: none;
   margin-bottom: 0px;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 5%; }
 
 .sign-up-form li > label {
   display: block;
@@ -244,6 +245,11 @@ table {
   color: #73956F;
   margin-bottom: 20px;
   margin-left: 35%; }
+
+.log-in-link {
+  text-decoration: none;
+  color: #FF8A78;
+  text-align: center; }
 
 .login-form {
   background-color: #F9EBE0;
@@ -359,6 +365,34 @@ table {
   font-size: 30px;
   margin: 2%; }
 
+.game-how-to {
+  background-color: #73956F;
+  width: fit-content;
+  padding: 1%;
+  display: flex;
+  align-self: center;
+  border-radius: 10px;
+  margin-bottom: 2%; }
+
+.how-to-card > h2 {
+  font-family: "Girassol", cursive;
+  color: #BEF9C2;
+  text-shadow: 1px 1px 2px #393E41;
+  font-size: 25px;
+  padding: 1%; }
+
+.how-to-card > p {
+  font-family: "Manuale", serif;
+  color: #F9EBE0;
+  margin: 1%;
+  font-size: 20px; }
+
+.how-to-card > button {
+  background-color: unset;
+  outline: none;
+  border: none;
+  margin-top: 1%; }
+
 @media (min-device-width: 901px) {
   .user-action-container {
     display: flex;
@@ -373,6 +407,13 @@ table {
     color: #73956F;
     text-shadow: 2px 2px 4px #F9EBE0;
     font-size: 20px;
+    margin: 2%; }
+
+  .game-how-to {
+    margin: 4%;
+    padding: 1%; }
+
+  .how-to-card > p {
     margin: 2%; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
   .action-container {
@@ -441,7 +482,9 @@ table {
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
-    margin: 8%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom: 8%;
     box-shadow: 5px 5px 5px #73956F;
     text-shadow: 1px 1px 2px #73956F;
     cursor: pointer;
@@ -458,8 +501,8 @@ table {
 
   .action-card {
     background-color: #393E41;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-bottom: 2%;
     list-style-type: none;
     border-radius: 10px;
@@ -490,7 +533,7 @@ table {
     padding-right: 30%; }
 
   .partial-action-container {
-    flex-basis: 50vh; }
+    flex-basis: 80vh; }
 
   .partial-action-container > button {
     background-color: unset;
@@ -562,7 +605,7 @@ table {
     align-self: center;
     margin: 1%; }
 
-  .user-container > button {
+  .completed-actions-button {
     font-family: "Zilla Slab", serif;
     font-size: 15px;
     font-weight: bolder;
@@ -583,7 +626,34 @@ table {
     outline-style: none; }
 
   .completed-action {
-    color: #BEF9C2; } }
+    color: #BEF9C2; }
+
+  .close-user-container-button {
+    background-color: unset;
+    border-style: unset;
+    margin-bottom: 5%;
+    float: right;
+    width: 10px; }
+
+  .delete-user-button {
+    font-family: "Zilla Slab", serif;
+    font-size: 15px;
+    font-weight: bolder;
+    color: #F9EBE0 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #FF8A78;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    width: 250px;
+    box-shadow: 5px 5px 5px #393E41;
+    text-shadow: 1px 1px 2px #73956F;
+    align-self: center;
+    margin-bottom: 5%;
+    outline-style: none; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
   .progress-bar {
     height: 15px;
@@ -643,7 +713,7 @@ table {
     align-self: center;
     margin: 1%; }
 
-  .user-container > button {
+  .completed-actions-button {
     font-family: "Zilla Slab", serif;
     font-size: 15px;
     font-weight: bolder;
@@ -667,7 +737,34 @@ table {
     color: #BEF9C2; }
 
   .completed-actions-container {
-    margin-top: 2%; } }
+    margin-top: 2%; }
+
+  .close-user-container-button {
+    background-color: unset;
+    border-style: unset;
+    margin-bottom: 5%;
+    float: right;
+    width: 10px; }
+
+  .delete-user-button {
+    font-family: "Zilla Slab", serif;
+    font-size: 15px;
+    font-weight: bolder;
+    color: #F9EBE0 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #FF8A78;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    width: 250px;
+    box-shadow: 5px 5px 5px #393E41;
+    text-shadow: 1px 1px 2px #73956F;
+    align-self: center;
+    margin-bottom: 5%;
+    outline-style: none; } }
 body, .App, .start-page, .main {
   height: 100vh; }
 

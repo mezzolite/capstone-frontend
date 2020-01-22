@@ -88,7 +88,9 @@
             display: inline-block;
             border: none;
             transition: all 0.4s ease 0s;   
-            margin: 8%;
+            margin-left: 8%;
+            margin-right: 8%;
+            margin-bottom: 8%;
             box-shadow: 5px 5px 5px $russian-green;
             text-shadow: 1px 1px 2px $russian-green;
             cursor: pointer;
@@ -107,8 +109,8 @@
 
         .action-card {
             background-color: $black-olive;
-            margin-left: 10%;
-            margin-right: 10%;
+            margin-left: 5%;
+            margin-right: 5%;
             margin-bottom: 2%;
             list-style-type: none;
             border-radius: 10px;
@@ -146,7 +148,7 @@
         }
 
         .partial-action-container {
-            flex-basis: 50vh;
+            flex-basis: 80vh;
         }
 
         .partial-action-container > button {
