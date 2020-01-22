@@ -3,10 +3,21 @@
   "name": "Imp-Politic",
   "icons": [
     {
+      "src": "pinkhair-front.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
       "src": "pinkhair.gif",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "ImpPoliticWordLogo.gif",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
     }
+
   ],
   "start_url": ".",
   "display": "standalone",
