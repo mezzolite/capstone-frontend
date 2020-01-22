@@ -363,8 +363,35 @@ table {
   color: #73956F;
   text-shadow: 1px 1px 2px #F9EBE0;
   font-size: 30px;
-  margin: 2%;
-  margin-bottom: 5%; }
+  margin: 2%; }
+
+.game-how-to {
+  background-color: #73956F;
+  width: fit-content;
+  padding: 1%;
+  display: flex;
+  align-self: center;
+  border-radius: 10px;
+  margin-bottom: 2%; }
+
+.how-to-card > h2 {
+  font-family: "Girassol", cursive;
+  color: #BEF9C2;
+  text-shadow: 1px 1px 2px #393E41;
+  font-size: 25px;
+  padding: 1%; }
+
+.how-to-card > p {
+  font-family: "Manuale", serif;
+  color: #F9EBE0;
+  margin: 1%;
+  font-size: 20px; }
+
+.how-to-card > button {
+  background-color: unset;
+  outline: none;
+  border: none;
+  margin-top: 1%; }
 
 @media (min-device-width: 901px) {
   .user-action-container {
@@ -380,6 +407,13 @@ table {
     color: #73956F;
     text-shadow: 2px 2px 4px #F9EBE0;
     font-size: 20px;
+    margin: 2%; }
+
+  .game-how-to {
+    margin: 4%;
+    padding: 1%; }
+
+  .how-to-card > p {
     margin: 2%; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
   .action-container {

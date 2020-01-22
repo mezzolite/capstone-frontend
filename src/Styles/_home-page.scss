@@ -13,7 +13,39 @@
     text-shadow: 1px 1px 2px $moccasin;
     font-size: 30px;
     margin: 2%;
-    margin-bottom: 5%;
+    // margin-bottom: 5%;
+}
+
+.game-how-to {
+    background-color: $russian-green;
+    width: fit-content;
+    padding: 1%;
+    display: flex;
+    align-self: center;
+    border-radius: 10px;
+    margin-bottom: 2%;
+}
+
+.how-to-card > h2 {
+    font-family: $header-font;
+    color: $tea-green;
+    text-shadow: 1px 1px 2px $black-olive;
+    font-size: 25px;
+    padding: 1%;
+}
+
+.how-to-card > p {
+    font-family: $user-font;
+    color: $moccasin;
+    margin: 1%;
+    font-size: 20px;
+}
+
+.how-to-card > button {
+    background-color: unset;
+    outline: none;
+    border: none;
+    margin-top: 1%;
 }
 
 @media 
@@ -40,6 +72,15 @@
             color: $russian-green;
             text-shadow: 2px 2px 4px $moccasin;
             font-size: 20px;
+            margin: 2%;
+        }
+
+        .game-how-to {
+            margin: 4%;
+            padding: 1%;
+        }
+
+        .how-to-card > p {
             margin: 2%;
         }
     }

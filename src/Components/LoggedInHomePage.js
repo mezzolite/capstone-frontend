@@ -3,11 +3,13 @@ import Header from './Header'
 import {withRouter} from 'react-router-dom'
 import UserContainer from '../Containers/UserContainer'
 import ActionContainer from '../Containers/ActionContainer'
+import HowToCard from './HowToCard'
 
 class LoggedInHomePage extends React.Component {
 
     state = {
         showAccount: false, 
+        visibleHowTo: true,
         loggedInUserPoints: 0,
         percentage: 0, 
         userLevel: 1
@@ -52,6 +54,18 @@ class LoggedInHomePage extends React.Component {
         }
     }
 
+    toggleVisibleHowTo = () => {
+        if(this.state.visibleHowTo){
+            this.setState({
+                visibleHowTo: false
+            })
+        } else {
+            this.setState({
+                visibleHowTo: true
+            })
+        }
+    }
+
    render(){
        return(
            <div className="home-page">
@@ -63,6 +77,16 @@ class LoggedInHomePage extends React.Component {
                     getLoggedInUserPoints={this.getLoggedInUserPoints}
                     />
                <h3>In the game of democracy, you participate, or you lose.</h3>
+               {this.state.visibleHowTo === true
+                ?    <div className="game-how-to">
+                        <HowToCard 
+                                user={this.props.loggedInUser}
+                                toggleVisibleHowTo={this.toggleVisibleHowTo}
+                        />
+                    </div>
+                : null
+
+               }
                <div className="user-action-container">
                     {this.state.showAccount === true
                         ? <UserContainer 
