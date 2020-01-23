@@ -4,7 +4,8 @@
 
 Imp-Politic is a game of democracy, rewarding users for participation and taking action on their beliefs.
 
-## Stack:
+## Stack
+
 React.js 
 
 React Router
@@ -13,7 +14,7 @@ Sass
 
 Material-UI 
 
-## Deployment:
+## Deployment
 
 Deployed on Firebase [here](https://imp-politic-game.firebaseapp.com/)
 
