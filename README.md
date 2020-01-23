@@ -20,7 +20,7 @@ Deployed on Firebase [here](https://imp-politic-game.firebaseapp.com/)
 
 ## Local Installation Instructions
 1. Fork and clone this repository
-2. In terminal: ```git clone git@github.com:mezzolite/advocacy-quiz-frontend.git ```
+2. In terminal: ```git clone git@github.com:mezzolite/capstone-frontend.git ```
 3. If you have node and npm installed, run ```npm install```
 4. Run ```npm start```
 
