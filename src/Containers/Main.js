@@ -5,17 +5,17 @@ import StartPage from '../Components/StartPage';
 import SignUpForm from '../Components/SignUpForm';
 import LogInForm from '../Components/LogInForm'
 
-// const avatarURL = "http://localhost:3000/avatars"
-// const userURL = "http://localhost:3000/users"
-// const loginURL = "http://localhost:3000/login"
-// const actionURL = "http://localhost:3000/actions"
-// const userActionsURL = "http://localhost:3000/user-actions"
+const avatarURL = "http://localhost:3000/avatars"
+const userURL = "http://localhost:3000/users"
+const loginURL = "http://localhost:3000/login"
+const actionURL = "http://localhost:3000/actions"
+const userActionsURL = "http://localhost:3000/user-actions"
 
-const avatarURL ='https://imp-politic.herokuapp.com/avatars'
-const userURL = 'https://imp-politic.herokuapp.com/users'
-const loginURL = 'https://imp-politic.herokuapp.com/login'
-const actionURL = 'https://imp-politic.herokuapp.com/actions'
-const userActionsURL = 'https://imp-politic.herokuapp.com/user-actions'
+// const avatarURL ='https://imp-politic.herokuapp.com/avatars'
+// const userURL = 'https://imp-politic.herokuapp.com/users'
+// const loginURL = 'https://imp-politic.herokuapp.com/login'
+// const actionURL = 'https://imp-politic.herokuapp.com/actions'
+// const userActionsURL = 'https://imp-politic.herokuapp.com/user-actions'
 
 class Main extends Component {
 
@@ -26,8 +26,7 @@ class Main extends Component {
     actions: [],
     loggedInUser: null,
     loggedInAvatar: null,
-    mainAvatar: null,
-    loggedInUserPoints: 0
+    mainAvatar: null
   }
 
  componentDidMount(){
@@ -52,12 +51,12 @@ class Main extends Component {
     })
  }
 
- shouldComponentUpdate(nextProps, nextState) {
-  if (this.state.loggedInUserPoints !== nextState.loggedInUserPoints) {
-    return false;
-  }
-  return true;
-}
+//  shouldComponentUpdate(nextProps, nextState) {
+//   if (this.state.loggedInUserPoints !== nextState.loggedInUserPoints) {
+//     return false;
+//   }
+//   return true;
+// }
 
   addUser = (user) => {
     this.setState({users: [...this.state.users, user]})
@@ -195,10 +194,7 @@ class Main extends Component {
                                 actions={this.state.actions}
                                 addActionToUser={this.addActionToUser}
                                 loggedIn={this.state.loggedIn}
-                                addRewardToPoints={this.addRewardToPoints}
                                 loggedInUser={this.state.loggedInUser}
-                                userPoints={this.state.loggedInUserPoints}
-                                getUserPoints={this.getLoggedInUserPoints}
                                 deleteUser={this.deleteUser}
                                 />}
             />
